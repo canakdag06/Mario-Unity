@@ -11,11 +11,16 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float deceleration = 20f;
 
     private new Rigidbody2D rigidbody;
+    private new Camera camera;
     private Vector2 moveInput;
+    private float playerWidth;
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        camera = Camera.main;
+
+        playerWidth = GetComponent<CapsuleCollider2D>().bounds.extents.x;
     }
 
     private void OnEnable()
@@ -37,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         ApplyMovement();
+        ClampPosition();
     }
 
     private void HandleMovement(Vector2 direction)
@@ -51,6 +57,17 @@ public class PlayerMovement : MonoBehaviour
         float changeRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
         float movement = Mathf.MoveTowards(rigidbody.linearVelocity.x, targetSpeed, changeRate * Time.fixedDeltaTime);
         rigidbody.linearVelocity = new Vector2(movement, rigidbody.linearVelocity.y);
+    }
+
+    private void ClampPosition()
+    {
+        Vector2 leftEdge = camera.ViewportToWorldPoint(Vector2.zero);
+        Vector2 rightEdge = camera.ViewportToWorldPoint(Vector2.one);
+        Vector3 currentPos = transform.position;
+
+        currentPos.x = Mathf.Clamp(currentPos.x, leftEdge.x + playerWidth, rightEdge.x - playerWidth);
+
+        transform.position = currentPos;
     }
 
 }
