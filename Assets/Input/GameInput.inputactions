@@ -110,7 +110,7 @@
             "id": "c821dbd4-5fd6-4a13-a078-2283afe574ef",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Resume",
                     "type": "Button",
                     "id": "027752cb-07a2-4bbe-a2d2-4d8fa17ec75e",
                     "expectedControlType": "",
@@ -123,11 +123,11 @@
                 {
                     "name": "",
                     "id": "e346f8f9-4b7c-4e50-86ae-63cacd0d8a7b",
-                    "path": "",
+                    "path": "<Keyboard>/escape",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Resume",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
