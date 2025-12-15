@@ -9,6 +9,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float maxSpeed = 8f;
     [SerializeField] private float acceleration = 15f;
     [SerializeField] private float deceleration = 20f;
+    [SerializeField] private float maxJumpHeight = 5f;
+    [SerializeField] private float maxJumpTime = 1f;
+
+    public float jumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
+    public float gravity => (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2); // d = Vi*t + (1/2)*a*(t^2)
+
+    public bool Grounded { get; private set; }
+    public bool Jumping { get; private set; }
 
     private new Rigidbody2D rigidbody;
     private new Camera camera;
