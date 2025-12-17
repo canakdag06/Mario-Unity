@@ -36,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
         if (inputReader != null)
         {
             inputReader.MoveEvent += HandleMovement;
+            inputReader.JumpStartedEvent += HandleJumpStarted;
+            inputReader.JumpCanceledEvent += HandleJumpCanceled;
         }
     }
 
@@ -44,18 +46,53 @@ public class PlayerMovement : MonoBehaviour
         if (inputReader != null)
         {
             inputReader.MoveEvent -= HandleMovement;
+            inputReader.JumpStartedEvent -= HandleJumpStarted;
+            inputReader.JumpCanceledEvent -= HandleJumpCanceled;
         }
+    }
+
+    private void Update()
+    {
+        Grounded = rigidbody.Raycast(Vector2.down);
+
+        if (Grounded && rigidbody.linearVelocity.y <= 0)
+        {
+            Jumping = false;
+        }
+
+        ApplyGravity();
     }
 
     private void FixedUpdate()
     {
         ApplyMovement();
         ClampPosition();
+
+
+        //ApplyGravity();
     }
 
     private void HandleMovement(Vector2 direction)
     {
         moveInput = direction;
+    }
+
+    private void HandleJumpStarted()
+    {
+        if (Grounded)
+        {
+            //velocity.y = jumpForce;
+            Jumping = true;
+            rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, jumpForce);
+        }
+    }
+
+    private void HandleJumpCanceled()
+    {
+        if (rigidbody.linearVelocity.y > 0)
+        {
+            rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, rigidbody.linearVelocity.y * 0.5f);
+        }
     }
 
     private void ApplyMovement()
@@ -65,6 +102,17 @@ public class PlayerMovement : MonoBehaviour
         float changeRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
         float movement = Mathf.MoveTowards(rigidbody.linearVelocity.x, targetSpeed, changeRate * Time.fixedDeltaTime);
         rigidbody.linearVelocity = new Vector2(movement, rigidbody.linearVelocity.y);
+    }
+
+    private void ApplyGravity()
+    {
+        if (!Grounded)
+        {
+            float multiplier = Jumping ? 2f : 1f;
+
+            float newYVelocity = rigidbody.linearVelocity.y + gravity * multiplier * Time.deltaTime;
+            rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, Mathf.Max(newYVelocity, gravity / 2f));
+        }
     }
 
     private void ClampPosition()
