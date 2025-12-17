@@ -10,6 +10,8 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
 
     // GAMEPLAY CONTROLS
     public event Action<Vector2> MoveEvent;
+    public event Action JumpStartedEvent;
+    public event Action JumpCanceledEvent;
     public event Action PauseEvent;
 
     // UI CONTROLS
@@ -60,6 +62,14 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
             PauseEvent?.Invoke();
             SetUI();
         }
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+            JumpStartedEvent?.Invoke();
+        else if (context.phase == InputActionPhase.Canceled)
+            JumpCanceledEvent?.Invoke();
     }
 
     // ----------- UI CONTROLS ------------ //
