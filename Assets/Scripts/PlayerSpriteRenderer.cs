@@ -5,7 +5,7 @@ public class PlayerSpriteRenderer : MonoBehaviour
     public Sprite idle;
     public Sprite jump;
     public Sprite slide;
-    public Sprite run;
+    public SpriteAnimation run;
 
     private SpriteRenderer spriteRenderer;
     private PlayerMovement movement;
@@ -16,8 +16,20 @@ public class PlayerSpriteRenderer : MonoBehaviour
         movement = GetComponentInParent<PlayerMovement>();
     }
 
+    private void OnEnable()
+    {
+        spriteRenderer.enabled = true;
+    }
+
+    private void OnDisable()
+    {
+        spriteRenderer.enabled = false;
+    }
+
     private void LateUpdate()
     {
+        run.enabled = movement.Running;
+
         if (movement.Jumping)
         {
             spriteRenderer.sprite = jump;
@@ -26,11 +38,7 @@ public class PlayerSpriteRenderer : MonoBehaviour
         {
             spriteRenderer.sprite = slide;
         }
-        else if (movement.Running)
-        {
-            spriteRenderer.sprite = run;
-        }
-        else
+        else if (!movement.Running)
         {
             spriteRenderer.sprite = idle;
         }
