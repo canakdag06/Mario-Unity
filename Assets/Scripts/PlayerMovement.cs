@@ -6,22 +6,26 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private InputReader inputReader;
 
 
-    [SerializeField] private float maxSpeed = 8f;
-    [SerializeField] private float acceleration = 15f;
-    [SerializeField] private float deceleration = 20f;
+
+    [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float maxJumpHeight = 5f;
     [SerializeField] private float maxJumpTime = 1f;
-
     public float jumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
     public float gravity => (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2); // d = Vi*t + (1/2)*a*(t^2)
+
+
+    private Vector2 velocity;
+    private float inputAxis;
+
 
     public bool Grounded { get; private set; }
     public bool Jumping { get; private set; }
 
     private new Rigidbody2D rigidbody;
     private new Camera camera;
-    private Vector2 moveInput;
     private float playerWidth;
+    private bool jumpButtonStarted;
+    private bool jumpButtonPerformed;
 
     private void Awake()
     {
@@ -37,8 +41,13 @@ public class PlayerMovement : MonoBehaviour
         {
             inputReader.MoveEvent += HandleMovement;
             inputReader.JumpStartedEvent += HandleJumpStarted;
+            inputReader.JumpPerformedEvent += HandleJumpPerformed;
             inputReader.JumpCanceledEvent += HandleJumpCanceled;
         }
+
+        rigidbody.bodyType = RigidbodyType2D.Dynamic;
+        velocity = Vector2.zero;
+        Jumping = false;
     }
 
     private void OnDisable()
@@ -47,17 +56,25 @@ public class PlayerMovement : MonoBehaviour
         {
             inputReader.MoveEvent -= HandleMovement;
             inputReader.JumpStartedEvent -= HandleJumpStarted;
+            inputReader.JumpPerformedEvent -= HandleJumpPerformed;
             inputReader.JumpCanceledEvent -= HandleJumpCanceled;
         }
+
+        rigidbody.bodyType = RigidbodyType2D.Kinematic;
+        velocity = Vector2.zero;
+        inputAxis = 0f;
+        Jumping = false;
     }
 
     private void Update()
     {
+        HorizontalMovement();
+
         Grounded = rigidbody.Raycast(Vector2.down);
 
-        if (Grounded && rigidbody.linearVelocity.y <= 0)
+        if (Grounded)
         {
-            Jumping = false;
+            GroundedMovement();
         }
 
         ApplyGravity();
@@ -65,65 +82,84 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        ApplyMovement();
-        ClampPosition();
+        Vector2 position = rigidbody.position;
+        position += velocity * Time.fixedDeltaTime;
 
+        // Clamp
+        Vector2 leftEdge = camera.ScreenToWorldPoint(Vector2.zero);
+        Vector2 rightEdge = camera.ScreenToWorldPoint(new Vector2(Screen.width, Screen.height));
+        position.x = Mathf.Clamp(position.x, leftEdge.x + 0.5f, rightEdge.x - 0.5f);
 
-        //ApplyGravity();
+        rigidbody.MovePosition(position);
     }
 
     private void HandleMovement(Vector2 direction)
     {
-        moveInput = direction;
+        inputAxis = direction.x;
+    }
+
+    private void HorizontalMovement()
+    {
+        velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
+
+        //if (rigidbody.Raycast(Vector2.right * velocity.x))
+        //{
+        //    velocity.x = 0f;
+        //}
+
+        //if (velocity.x > 0f)
+        //{
+        //    transform.eulerAngles = Vector3.zero;
+        //}
+        //else if (velocity.x < 0f)
+        //{
+        //    transform.eulerAngles = new Vector3(0f, 180f, 0f);
+        //}
+
+    }
+
+    private void GroundedMovement()
+    {
+        velocity.y = Mathf.Max(velocity.y, 0f);
+        Jumping = velocity.y > 0f;
+
+        if (jumpButtonStarted)
+        {
+            velocity.y = jumpForce;
+            Jumping = true;
+            jumpButtonStarted = false;
+        }
     }
 
     private void HandleJumpStarted()
     {
-        if (Grounded)
-        {
-            //velocity.y = jumpForce;
-            Jumping = true;
-            rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, jumpForce);
-        }
+        jumpButtonStarted = true;
+    }
+
+    private void HandleJumpPerformed()
+    {
+        //jumpButtonStarted = false;
+        jumpButtonPerformed = true;
     }
 
     private void HandleJumpCanceled()
     {
+        jumpButtonStarted = false;
+        jumpButtonPerformed = false;
         if (rigidbody.linearVelocity.y > 0)
         {
             rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, rigidbody.linearVelocity.y * 0.5f);
         }
     }
 
-    private void ApplyMovement()
-    {
-        float targetSpeed = moveInput.x * maxSpeed;
-        float speedDif = targetSpeed - rigidbody.linearVelocity.x;
-        float changeRate = (Mathf.Abs(targetSpeed) > 0.01f) ? acceleration : deceleration;
-        float movement = Mathf.MoveTowards(rigidbody.linearVelocity.x, targetSpeed, changeRate * Time.fixedDeltaTime);
-        rigidbody.linearVelocity = new Vector2(movement, rigidbody.linearVelocity.y);
-    }
 
     private void ApplyGravity()
     {
-        if (!Grounded)
-        {
-            float multiplier = Jumping ? 2f : 1f;
+        bool falling = velocity.y < 0f || !jumpButtonPerformed;
+        float multiplier = falling ? 2f : 1f;
+        Debug.Log("falling: " + falling);
 
-            float newYVelocity = rigidbody.linearVelocity.y + gravity * multiplier * Time.deltaTime;
-            rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, Mathf.Max(newYVelocity, gravity / 2f));
-        }
+        velocity.y += gravity * multiplier * Time.deltaTime;
+        velocity.y = Mathf.Max(velocity.y, gravity / 2f);
     }
-
-    private void ClampPosition()
-    {
-        Vector2 leftEdge = camera.ViewportToWorldPoint(Vector2.zero);
-        Vector2 rightEdge = camera.ViewportToWorldPoint(Vector2.one);
-        Vector3 currentPos = transform.position;
-
-        currentPos.x = Mathf.Clamp(currentPos.x, leftEdge.x + playerWidth, rightEdge.x - playerWidth);
-
-        transform.position = currentPos;
-    }
-
 }
