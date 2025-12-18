@@ -95,9 +95,18 @@ public class PlayerMovement : MonoBehaviour
     {
         velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
 
-        if(rigidbody.Raycast(Vector2.right * velocity.x))
+        if (rigidbody.Raycast(Vector2.right * velocity.x))
         {
             velocity.x = 0;
+        }
+
+        if (velocity.x > 0f)
+        {
+            transform.eulerAngles = Vector3.zero;
+        }
+        else if (velocity.x < 0f)
+        {
+            transform.eulerAngles = new Vector3(0f, 180f, 0f);
         }
     }
 
