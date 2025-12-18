@@ -5,25 +5,20 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private InputReader inputReader;
 
-
-
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float maxJumpHeight = 5f;
     [SerializeField] private float maxJumpTime = 1f;
-    public float jumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
-    public float gravity => (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2); // d = Vi*t + (1/2)*a*(t^2)
-
-
-    private Vector2 velocity;
-    private float inputAxis;
-
+    public float JumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
+    public float Gravity => (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2); // d = Vi*t + (1/2)*a*(t^2)
 
     public bool Grounded { get; private set; }
     public bool Jumping { get; private set; }
 
+    private Vector2 velocity;
+    private float inputAxis;
+
     private new Rigidbody2D rigidbody;
     private new Camera camera;
-    private float playerWidth;
     private bool jumpButtonStarted;
     private bool jumpButtonPerformed;
 
@@ -31,8 +26,6 @@ public class PlayerMovement : MonoBehaviour
     {
         rigidbody = GetComponent<Rigidbody2D>();
         camera = Camera.main;
-
-        playerWidth = GetComponent<CapsuleCollider2D>().bounds.extents.x;
     }
 
     private void OnEnable()
@@ -101,21 +94,6 @@ public class PlayerMovement : MonoBehaviour
     private void HorizontalMovement()
     {
         velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
-
-        //if (rigidbody.Raycast(Vector2.right * velocity.x))
-        //{
-        //    velocity.x = 0f;
-        //}
-
-        //if (velocity.x > 0f)
-        //{
-        //    transform.eulerAngles = Vector3.zero;
-        //}
-        //else if (velocity.x < 0f)
-        //{
-        //    transform.eulerAngles = new Vector3(0f, 180f, 0f);
-        //}
-
     }
 
     private void GroundedMovement()
@@ -125,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (jumpButtonStarted)
         {
-            velocity.y = jumpForce;
+            velocity.y = JumpForce;
             Jumping = true;
             jumpButtonStarted = false;
         }
@@ -138,7 +116,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleJumpPerformed()
     {
-        //jumpButtonStarted = false;
         jumpButtonPerformed = true;
     }
 
@@ -152,14 +129,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     private void ApplyGravity()
     {
         bool falling = velocity.y < 0f || !jumpButtonPerformed;
         float multiplier = falling ? 2f : 1f;
-        Debug.Log("falling: " + falling);
 
-        velocity.y += gravity * multiplier * Time.deltaTime;
-        velocity.y = Mathf.Max(velocity.y, gravity / 2f);
+        velocity.y += Gravity * multiplier * Time.deltaTime;
+        velocity.y = Mathf.Max(velocity.y, Gravity / 2f);
     }
 }
