@@ -137,4 +137,13 @@ public class PlayerMovement : MonoBehaviour
         velocity.y += Gravity * multiplier * Time.deltaTime;
         velocity.y = Mathf.Max(velocity.y, Gravity / 2f);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.layer != LayerMask.NameToLayer("PowerUp")
+            && transform.IsInThisDirection(collision.transform, Vector2.up))
+        {
+            velocity.y = 0f;
+        }
+    }
 }
