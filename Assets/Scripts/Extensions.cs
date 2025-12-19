@@ -27,7 +27,7 @@ public static class Extensions
         return false;
     }
 
-    public static bool IsInThisDirection(this Transform a, Transform b, Vector2 testDirection)
+    public static bool DotTest(this Transform a, Transform b, Vector2 testDirection)
     {
         Vector2 direction = b.position - a.position;
         return Vector2.Dot(direction.normalized, testDirection) > 0.25f;
