@@ -2,12 +2,7 @@ using UnityEngine;
 
 public class SideScroll : MonoBehaviour
 {
-    private Transform cameraTarget;
-
-    private void Start()
-    {
-        cameraTarget = GameManager.Instance.Player.transform;
-    }
+    public Transform cameraTarget;
 
     private void LateUpdate()
     {
