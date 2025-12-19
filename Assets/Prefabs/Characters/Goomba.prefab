@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 5884664420368209960}
   - component: {fileID: 3670691650323024651}
   - component: {fileID: 2083175821421333234}
-  - component: {fileID: 4617945563731499147}
+  - component: {fileID: 3622460884178561388}
   - component: {fileID: 8199663980934838266}
+  - component: {fileID: 4617945563731499147}
   m_Layer: 7
   m_Name: Goomba
   m_TagString: Untagged
@@ -154,6 +155,37 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &3622460884178561388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164684629729578476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33216b59e293fbf45a5789de60408817, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flatSprite: {fileID: 21300000, guid: 02356353eee434144ab87c5fdd93185e, type: 3}
+  spriteRenderer: {fileID: 5884664420368209960}
+  collider: {fileID: 2083175821421333234}
+  entityMovement: {fileID: 8199663980934838266}
+  spriteAnimation: {fileID: 4617945563731499147}
+--- !u!114 &8199663980934838266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6164684629729578476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886aa6d5341c2e04b9e281ed86a959bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  direction: {x: -1, y: 0}
 --- !u!114 &4617945563731499147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,17 +203,3 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9949d709a0fee0649b0ed079565efec6, type: 3}
   FPS: 5
   loop: 1
---- !u!114 &8199663980934838266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6164684629729578476}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886aa6d5341c2e04b9e281ed86a959bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  direction: {x: -1, y: 0}
