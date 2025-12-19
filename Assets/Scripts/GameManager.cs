@@ -5,12 +5,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
-    public GameObject Player;
 
     public int World { get; private set; }
     public int Stage { get; private set; }
     public int Lives { get; private set; }
-
 
     private void Awake()
     {
