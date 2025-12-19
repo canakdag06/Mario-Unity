@@ -12,7 +12,7 @@ public class EntityMovement : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        colliderMask = LayerMask.GetMask("Default", "Enemy");
+        colliderMask = LayerMask.GetMask("Default", "Enemy", "DeadEnemy");
         enabled = false;
     }
 
@@ -48,7 +48,7 @@ public class EntityMovement : MonoBehaviour
             direction = -direction;
         }
 
-        if(rigidbody.Raycast(Vector2.down, colliderMask))
+        if (rigidbody.Raycast(Vector2.down, colliderMask))
         {
             velocity.y = Mathf.Max(velocity.y, 0f);
         }
