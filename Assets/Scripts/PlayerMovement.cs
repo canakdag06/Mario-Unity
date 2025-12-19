@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private new Camera camera;
     private bool jumpButtonStarted;
     private bool jumpButtonPerformed;
+    private LayerMask colliderMask;
 
     private void Awake()
     {
@@ -45,6 +46,11 @@ public class PlayerMovement : MonoBehaviour
         Jumping = false;
     }
 
+    private void Start()
+    {
+        colliderMask = LayerMask.GetMask("Default");
+    }
+
     private void OnDisable()
     {
         if (inputReader != null)
@@ -65,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
     {
         HorizontalMovement();
 
-        Grounded = rigidbody.Raycast(Vector2.down);
+        Grounded = rigidbody.Raycast(Vector2.down, colliderMask);
 
         if (Grounded)
         {
@@ -97,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
     {
         velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
 
-        if (rigidbody.Raycast(Vector2.right * velocity.x))
+        if (rigidbody.Raycast(Vector2.right * velocity.x, colliderMask))
         {
             velocity.x = 0;
         }
@@ -162,4 +168,5 @@ public class PlayerMovement : MonoBehaviour
             velocity.y = 0f;
         }
     }
+
 }
