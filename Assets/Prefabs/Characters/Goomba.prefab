@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 266810072577391517}
   - component: {fileID: 5884664420368209960}
   - component: {fileID: 3670691650323024651}
-  - component: {fileID: 2083175821421333234}
+  - component: {fileID: 573695613551198745}
   - component: {fileID: 3622460884178561388}
   - component: {fileID: 8199663980934838266}
   - component: {fileID: 4617945563731499147}
@@ -119,8 +119,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &2083175821421333234
-CircleCollider2D:
+--- !u!61 &573695613551198745
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -154,7 +154,17 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 0.85, y: 1}
+  m_EdgeRadius: 0
 --- !u!114 &3622460884178561388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,7 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flatSprite: {fileID: 21300000, guid: 02356353eee434144ab87c5fdd93185e, type: 3}
   spriteRenderer: {fileID: 5884664420368209960}
-  collider: {fileID: 2083175821421333234}
+  collider: {fileID: 573695613551198745}
   entityMovement: {fileID: 8199663980934838266}
   spriteAnimation: {fileID: 4617945563731499147}
 --- !u!114 &8199663980934838266
