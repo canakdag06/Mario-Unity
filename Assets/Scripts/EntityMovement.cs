@@ -11,15 +11,6 @@ public class EntityMovement : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-    }
-
-    private void OnBecameVisible()
-    {
-        enabled = true;
-    }
-
-    private void OnBecameInvisible()
-    {
         enabled = false;
     }
 
@@ -32,5 +23,32 @@ public class EntityMovement : MonoBehaviour
     {
         rigidbody.linearVelocity = Vector2.zero;
         rigidbody.Sleep();
+    }
+
+    private void OnBecameVisible()
+    {
+        enabled = true;
+    }
+
+    private void OnBecameInvisible()
+    {
+        enabled = false;
+    }
+
+    private void FixedUpdate()
+    {
+        velocity.x = direction.x * speed;
+        velocity.y += Physics2D.gravity.y * Time.fixedDeltaTime;
+        rigidbody.MovePosition(rigidbody.position + velocity * Time.fixedDeltaTime);
+
+        if (rigidbody.Raycast(direction))
+        {
+            direction = -direction;
+        }
+
+        if(rigidbody.Raycast(Vector2.down))
+        {
+            velocity.y = Mathf.Max(velocity.y, 0f);
+        }
     }
 }
