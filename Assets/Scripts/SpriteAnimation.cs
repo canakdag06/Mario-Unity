@@ -14,12 +14,22 @@ public class SpriteAnimation : MonoBehaviour
         Renderer = GetComponent<SpriteRenderer>();
     }
 
-
-    void Start()
+    private void OnEnable()
     {
-        float time = 1f / FPS;
-        InvokeRepeating(nameof(PlayAnimation), time, time);
+        StartAnimation();
     }
+
+    private void OnDisable()
+    {
+        StopAnimation();
+    }
+
+
+    //void Start()
+    //{
+    //    float time = 1f / FPS;
+    //    InvokeRepeating(nameof(PlayAnimation), time, time);
+    //}
 
     public void StartAnimation()
     {
