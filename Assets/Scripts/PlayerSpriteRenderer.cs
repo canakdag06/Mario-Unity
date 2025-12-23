@@ -23,6 +23,7 @@ public class PlayerSpriteRenderer : MonoBehaviour
 
     private void OnDisable()
     {
+        run.enabled = false;
         spriteRenderer.enabled = false;
     }
 
