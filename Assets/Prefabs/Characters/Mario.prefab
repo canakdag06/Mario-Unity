@@ -122,7 +122,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 15855e704eb39704884701bf77e1799d, type: 3}
   - {fileID: 21300000, guid: be1a0efa2f5cbd64484bee9a213b88ae, type: 3}
   - {fileID: 21300000, guid: 15855e704eb39704884701bf77e1799d, type: 3}
-  FPS: 15
+  FPS: 8
   loop: 1
 --- !u!1 &3316119029776494121
 GameObject:
@@ -392,5 +392,5 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8667f6813592f1f4a9aa228f2b5ab1fb, type: 3}
   - {fileID: 21300000, guid: 49310be8981af754f96370618235a4ad, type: 3}
   - {fileID: 21300000, guid: 8667f6813592f1f4a9aa228f2b5ab1fb, type: 3}
-  FPS: 15
+  FPS: 8
   loop: 1
