@@ -9,9 +9,11 @@ public class Koopa : MonoBehaviour
     [SerializeField] private EntityMovement entityMovement;
     [SerializeField] private SpriteAnimation spriteAnimation;
 
+    [SerializeField] private float slidingSpeed = 12f;
+
     private LayerMask deadEnemyMask;
     private bool isShelled;
-    private bool isShellMoving;
+    private bool isSliding;
 
     private void Awake()
     {
@@ -20,17 +22,32 @@ public class Koopa : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (!isShelled && collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
 
-            if (transform.DotTest(collision.transform, Vector2.up))
+            if (!isShelled)
             {
-                EnterShell();
+                if (transform.DotTest(collision.transform, Vector2.up))
+                {
+                    EnterShell();
+                }
+                else
+                {
+                    player.Hit();
+                }
             }
             else
             {
-                player.Hit();
+                if (!isSliding)
+                {
+                    Vector2 direction = new Vector2(transform.position.x - collision.gameObject.transform.position.x, transform.position.y);
+                    Slide(direction);
+                }
+                else
+                {
+                    player.Hit();
+                }
             }
         }
     }
@@ -43,5 +60,14 @@ public class Koopa : MonoBehaviour
         entityMovement.enabled = false;
         spriteAnimation.StopAnimation();
         spriteRenderer.sprite = shellSprite;
+    }
+
+    private void Slide(Vector2 direction)
+    {
+        isSliding = true;
+
+        entityMovement.direction = direction.normalized;
+        entityMovement.speed = slidingSpeed;
+        entityMovement.enabled = true;
     }
 }
