@@ -162,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+        if (collision.gameObject.CompareTag("Enemy"))
         {
             if (transform.DotTest(collision.transform, Vector2.down))
             {

@@ -29,10 +29,10 @@ public class Goomba : MonoBehaviour
 
     private void Flatten()
     {
-        gameObject.layer = deadEnemyMask;
         entityMovement.enabled = false;
         spriteAnimation.StopAnimation();
         spriteRenderer.sprite = flatSprite;
+        gameObject.layer = deadEnemyMask;
 
         Destroy(gameObject, 1f);
     }
