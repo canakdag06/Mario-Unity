@@ -42,7 +42,7 @@ public class Koopa : MonoBehaviour
             {
                 if (!isSliding)
                 {
-                    Vector2 direction = new Vector2(transform.position.x - collision.gameObject.transform.position.x, transform.position.y);
+                    Vector2 direction = new(transform.position.x - collision.gameObject.transform.position.x, 0f);
                     Slide(direction);
                 }
                 else
