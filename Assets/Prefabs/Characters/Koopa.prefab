@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 3468492228354180972}
   m_Layer: 7
   m_Name: Koopa
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,6 +182,7 @@ MonoBehaviour:
   collider: {fileID: 6703863617061725433}
   entityMovement: {fileID: 3638864548840460337}
   spriteAnimation: {fileID: 3468492228354180972}
+  slidingSpeed: 12
 --- !u!114 &3638864548840460337
 MonoBehaviour:
   m_ObjectHideFlags: 0
