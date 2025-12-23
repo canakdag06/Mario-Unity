@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2269570684922003046}
   - component: {fileID: 957860214328377017}
   - component: {fileID: 6703863617061725433}
+  - component: {fileID: 5028148406898659392}
   - component: {fileID: 3638864548840460337}
   - component: {fileID: 3468492228354180972}
   m_Layer: 7
@@ -107,7 +108,7 @@ Rigidbody2D:
   m_LinearDamping: 0
   m_AngularDamping: 0
   m_GravityScale: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a5029ade27db9f24ea40cd43c8f70855, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -164,6 +165,23 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5028148406898659392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4256719850859714108}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914d73e6c457b594f8cb10935f529ee3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shellSprite: {fileID: 21300000, guid: 37b07ac2cf2a71349a13f9f81ae56222, type: 3}
+  spriteRenderer: {fileID: 2269570684922003046}
+  collider: {fileID: 6703863617061725433}
+  entityMovement: {fileID: 3638864548840460337}
+  spriteAnimation: {fileID: 3468492228354180972}
 --- !u!114 &3638864548840460337
 MonoBehaviour:
   m_ObjectHideFlags: 0
