@@ -19,9 +19,15 @@ public class Goomba : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            Player player = collision.gameObject.GetComponent<Player>();
+
             if (transform.DotTest(collision.transform, Vector2.up))
             {
                 Flatten();
+            }
+            else
+            {
+                player.Hit();
             }
         }
     }
