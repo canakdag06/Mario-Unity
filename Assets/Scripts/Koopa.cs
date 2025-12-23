@@ -8,16 +8,17 @@ public class Koopa : MonoBehaviour
     [SerializeField] private new Collider2D collider;
     [SerializeField] private EntityMovement entityMovement;
     [SerializeField] private SpriteAnimation spriteAnimation;
+    [SerializeField] private DeathAnimation deathAnimation;
 
     [SerializeField] private float slidingSpeed = 12f;
 
-    private LayerMask deadEnemyMask;
+    private int slidingShellLayer;
     private bool isShelled;
     private bool isSliding;
 
     private void Awake()
     {
-        deadEnemyMask = LayerMask.NameToLayer("DeadEnemy");
+        slidingShellLayer = LayerMask.NameToLayer("SlidingShell");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -50,6 +51,10 @@ public class Koopa : MonoBehaviour
                 }
             }
         }
+        else if (!isShelled && collision.gameObject.layer == slidingShellLayer)
+        {
+            GetHit();
+        }
     }
 
 
@@ -58,16 +63,27 @@ public class Koopa : MonoBehaviour
         isShelled = true;
 
         entityMovement.enabled = false;
-        spriteAnimation.StopAnimation();
+        spriteAnimation.enabled = false;
         spriteRenderer.sprite = shellSprite;
+
+        gameObject.layer = slidingShellLayer;
     }
 
     private void Slide(Vector2 direction)
     {
         isSliding = true;
+        gameObject.layer = slidingShellLayer;
 
         entityMovement.direction = direction.normalized;
         entityMovement.speed = slidingSpeed;
         entityMovement.enabled = true;
+    }
+
+    private void GetHit()
+    {
+        entityMovement.enabled = false;
+        deathAnimation.enabled = true;
+
+        Destroy(gameObject, 3f);
     }
 }
