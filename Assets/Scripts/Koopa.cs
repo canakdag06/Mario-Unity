@@ -86,4 +86,12 @@ public class Koopa : MonoBehaviour
 
         Destroy(gameObject, 3f);
     }
+
+    private void OnBecameInvisible()
+    {
+        if(isSliding)
+        {
+            Destroy(gameObject);
+        }
+    }
 }
