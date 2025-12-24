@@ -3,7 +3,8 @@ using UnityEngine;
 
 public class BlockHit : MonoBehaviour
 {
-    [SerializeField] private GameObject item;
+    [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private GameObject blockCoinPrefab;
     [SerializeField] private Sprite emptyBlock;
     [SerializeField] private int maxHits = -1;
 
@@ -38,9 +39,12 @@ public class BlockHit : MonoBehaviour
             spriteRenderer.sprite = emptyBlock;
         }
 
-        if(item != null)
+        if (itemPrefab == null)
         {
-            Instantiate(item, transform.position, Quaternion.identity);
+            if (blockCoinPrefab != null)
+            {
+                Instantiate(blockCoinPrefab, transform.position, Quaternion.identity);
+            }
         }
 
         StartCoroutine(Animate());
@@ -57,6 +61,11 @@ public class BlockHit : MonoBehaviour
         yield return Move(secondPosition, initialPosition);
 
         isAnimating = false;
+
+        if (itemPrefab != null)
+        {
+            SpawnItem();
+        }
     }
 
     private IEnumerator Move(Vector3 from, Vector3 to)
@@ -74,5 +83,11 @@ public class BlockHit : MonoBehaviour
         }
 
         transform.localPosition = to;
+    }
+
+    private void SpawnItem()
+    {
+        GameObject mushroom = Instantiate(itemPrefab, transform.position, Quaternion.identity);
+        mushroom.GetComponent<BlockItem>().PopUp();
     }
 }
