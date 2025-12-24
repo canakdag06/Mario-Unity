@@ -28,6 +28,8 @@ public class BlockHit : MonoBehaviour
 
     private void Hit()
     {
+        spriteRenderer.enabled = true; // if its a hidden block
+
         maxHits--;
 
         if (maxHits == 0)
