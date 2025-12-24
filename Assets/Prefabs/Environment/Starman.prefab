@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 6675453319667024203}
   - component: {fileID: 8568455143492901420}
   - component: {fileID: 7991820507918568487}
-  - component: {fileID: 6326924871096563071}
   - component: {fileID: 6283265702565715544}
+  - component: {fileID: 6326924871096563071}
+  - component: {fileID: 8850546843433118951}
   m_Layer: 6
   m_Name: Starman
   m_TagString: Untagged
@@ -117,20 +118,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6326924871096563071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7858865321606480270}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e765a910e45cb6045991833d7d36e540, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidBody: {fileID: 7991820507918568487}
-  collider: {fileID: 6283265702565715544}
 --- !u!58 &6283265702565715544
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -167,3 +154,30 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: -0.05}
   m_Radius: 0.5
+--- !u!114 &6326924871096563071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858865321606480270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e765a910e45cb6045991833d7d36e540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 7991820507918568487}
+  collider: {fileID: 6283265702565715544}
+--- !u!114 &8850546843433118951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7858865321606480270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8681e6f5a683c2438a64e0ea34ecf9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3

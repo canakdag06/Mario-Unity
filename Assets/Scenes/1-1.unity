@@ -2130,6 +2130,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
+      propertyPath: itemPrefab
+      value: 
+      objectReference: {fileID: 7858865321606480270, guid: fe4ad72423e404a4da5d34ee3eca03c0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2452,6 +2456,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryBlock (13)
       objectReference: {fileID: 0}
+    - target: {fileID: 2588975496939819791, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
+      propertyPath: itemPrefab
+      value: 
+      objectReference: {fileID: 7732493022650972303, guid: d01c1b4146a7b99499085a9ac976c20e, type: 3}
     - target: {fileID: 7184994708768978824, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
       propertyPath: m_LocalPosition.x
       value: 64
@@ -5098,6 +5106,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryBlock (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 2588975496939819791, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
+      propertyPath: itemPrefab
+      value: 
+      objectReference: {fileID: 5703069245608161670, guid: 1e5185885cebb3f49879037230679d0e, type: 3}
     - target: {fileID: 7184994708768978824, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
       propertyPath: m_LocalPosition.x
       value: 109
@@ -10073,6 +10085,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
+      propertyPath: blockCoinPrefab
+      value: 
+      objectReference: {fileID: 4254314156195553147, guid: ad68a076f3c8ab04db1b9de1515026c7, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10777,6 +10793,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryBlock (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2588975496939819791, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
+      propertyPath: itemPrefab
+      value: 
+      objectReference: {fileID: 5703069245608161670, guid: 1e5185885cebb3f49879037230679d0e, type: 3}
     - target: {fileID: 7184994708768978824, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
       propertyPath: m_LocalPosition.x
       value: 78

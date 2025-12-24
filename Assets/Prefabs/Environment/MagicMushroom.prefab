@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 5912642789159003063}
   - component: {fileID: 3324345643919333187}
   - component: {fileID: 4411009451226486003}
+  - component: {fileID: 8638128120690309952}
   - component: {fileID: 6489504335426741652}
   - component: {fileID: 7727042879911775464}
-  - component: {fileID: 8638128120690309952}
+  - component: {fileID: 5645021610529752316}
   m_Layer: 6
   m_Name: MagicMushroom
   m_TagString: Untagged
@@ -118,35 +119,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6489504335426741652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5703069245608161670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e765a910e45cb6045991833d7d36e540, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigidBody: {fileID: 4411009451226486003}
-  collider: {fileID: 8638128120690309952}
-  spriteRenderer: {fileID: 3324345643919333187}
---- !u!114 &7727042879911775464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5703069245608161670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 886aa6d5341c2e04b9e281ed86a959bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  direction: {x: 1, y: 0}
 --- !u!58 &8638128120690309952
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -183,3 +155,44 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &6489504335426741652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703069245608161670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e765a910e45cb6045991833d7d36e540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 4411009451226486003}
+  collider: {fileID: 8638128120690309952}
+--- !u!114 &7727042879911775464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703069245608161670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886aa6d5341c2e04b9e281ed86a959bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  direction: {x: 1, y: 0}
+--- !u!114 &5645021610529752316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5703069245608161670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8681e6f5a683c2438a64e0ea34ecf9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
