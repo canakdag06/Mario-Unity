@@ -6378,6 +6378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: MysteryBlock (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2588975496939819791, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
+      propertyPath: itemPrefab
+      value: 
+      objectReference: {fileID: 5703069245608161670, guid: 1e5185885cebb3f49879037230679d0e, type: 3}
     - target: {fileID: 7184994708768978824, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
       propertyPath: m_LocalPosition.x
       value: 21

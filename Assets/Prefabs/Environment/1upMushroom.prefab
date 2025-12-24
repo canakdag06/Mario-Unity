@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 1942187648624448796}
   - component: {fileID: 4763847652183262911}
   - component: {fileID: 1942165072930112303}
-  - component: {fileID: 2711202674227927490}
+  - component: {fileID: 7487964104578611972}
+  - component: {fileID: 767646556138263540}
   m_Layer: 6
   m_Name: 1upMushroom
   m_TagString: Untagged
@@ -115,9 +116,24 @@ Rigidbody2D:
   m_Interpolate: 1
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
---- !u!61 &2711202674227927490
-BoxCollider2D:
+  m_Constraints: 4
+--- !u!114 &7487964104578611972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732493022650972303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e765a910e45cb6045991833d7d36e540, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigidBody: {fileID: 1942165072930112303}
+  collider: {fileID: 767646556138263540}
+  spriteRenderer: {fileID: 4763847652183262911}
+--- !u!58 &767646556138263540
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -151,14 +167,4 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 0.85, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5

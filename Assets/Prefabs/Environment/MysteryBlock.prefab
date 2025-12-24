@@ -147,6 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd3e5391e58ca8a499864cd5cb3c162a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 4254314156195553147, guid: ad68a076f3c8ab04db1b9de1515026c7, type: 3}
+  itemPrefab: {fileID: 0}
+  blockCoinPrefab: {fileID: 4254314156195553147, guid: ad68a076f3c8ab04db1b9de1515026c7, type: 3}
   emptyBlock: {fileID: 21300000, guid: addcfe64ba3c6bf4ea1651b932762d9a, type: 3}
   maxHits: 1
