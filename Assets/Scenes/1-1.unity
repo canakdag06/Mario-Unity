@@ -10086,6 +10086,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
+      propertyPath: maxHits
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: blockCoinPrefab
       value: 
       objectReference: {fileID: 4254314156195553147, guid: ad68a076f3c8ab04db1b9de1515026c7, type: 3}
