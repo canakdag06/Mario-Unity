@@ -1,0 +1,39 @@
+using UnityEngine;
+
+public class PowerUp : MonoBehaviour
+{
+    public enum Type
+    {
+        Coin,
+        ExtraLife,
+        MagicMushroom,
+        Star
+    }
+
+    public Type type;
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            ApplyPowerUp(collision.gameObject);
+        }
+    }
+
+    private void ApplyPowerUp(GameObject player)
+    {
+        switch (type)
+        {
+            case Type.Coin:
+                GameManager.Instance.AddCoin(); break;
+            case Type.ExtraLife:
+                GameManager.Instance.AddLife(); break;
+            case Type.MagicMushroom:
+                break;
+            case Type.Star:
+                break;
+        }
+
+        Destroy(gameObject);
+    }
+}

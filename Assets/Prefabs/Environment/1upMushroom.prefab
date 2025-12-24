@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4763847652183262911}
   - component: {fileID: 1942165072930112303}
   - component: {fileID: 7487964104578611972}
+  - component: {fileID: 8498781545425037911}
   - component: {fileID: 767646556138263540}
   m_Layer: 6
   m_Name: 1upMushroom
@@ -131,7 +132,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigidBody: {fileID: 1942165072930112303}
   collider: {fileID: 767646556138263540}
-  spriteRenderer: {fileID: 4763847652183262911}
+--- !u!114 &8498781545425037911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7732493022650972303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 886aa6d5341c2e04b9e281ed86a959bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  direction: {x: 1, y: 0}
 --- !u!58 &767646556138263540
 CircleCollider2D:
   m_ObjectHideFlags: 0

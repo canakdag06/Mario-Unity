@@ -28,11 +28,13 @@ public class BlockItem : MonoBehaviour
         while (elapsed < duration)
         {
             float t = elapsed / duration;
-            transform.position = Vector3.Lerp(startPos, endPos, t);
+            transform.localPosition = Vector3.Lerp(startPos, endPos, t);
             elapsed += Time.deltaTime;
 
             yield return null;
         }
+
+        transform.localPosition = endPos;
 
         rigidBody.bodyType = RigidbodyType2D.Dynamic;
         collider.enabled = true;
