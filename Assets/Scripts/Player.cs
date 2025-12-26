@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public bool IsSmall => smallRenderer.enabled;
     public bool IsBig => bigRenderer.enabled;
     public bool IsDead => deathAnimation.enabled;
+    public bool IsStarPowered { get; private set; }
 
     private DeathAnimation deathAnimation;
     private CapsuleCollider2D capsuleCollider;
@@ -18,22 +19,21 @@ public class Player : MonoBehaviour
     {
         deathAnimation = GetComponent<DeathAnimation>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
-    }
-
-    private void Start()
-    {
         activeRenderer = smallRenderer;
     }
 
     public void Hit()
     {
-        if (IsBig)
+        if (!IsStarPowered && !IsDead)
         {
-            Shrink();
-        }
-        else
-        {
-            Death();
+            if (IsBig)
+            {
+                Shrink();
+            }
+            else
+            {
+                Death();
+            }
         }
     }
 
@@ -47,6 +47,11 @@ public class Player : MonoBehaviour
         capsuleCollider.offset = new Vector2(0f, 0.5f);
 
         StartCoroutine(ScaleAnimation());
+    }
+
+    public void StarPower()
+    {
+        StartCoroutine(StarPowerAnimation());
     }
 
     private void Shrink()
@@ -63,25 +68,37 @@ public class Player : MonoBehaviour
 
     private IEnumerator ScaleAnimation()
     {
-        float elapsed = 0f;
         float duration = 1f;
+        float endTime = Time.time + duration;
 
-        while (elapsed < duration)
+        while (Time.time < endTime)
         {
-            elapsed += Time.deltaTime;
+            smallRenderer.enabled = !smallRenderer.enabled;
+            bigRenderer.enabled = !bigRenderer.enabled;
 
-            if (Time.frameCount % 30 == 0)  // how can i make this frame independent?
-            {
-                smallRenderer.enabled = !smallRenderer.enabled;
-                bigRenderer.enabled = !bigRenderer.enabled;
-            }
-
-            yield return null;
+            yield return new WaitForSeconds(Random.Range(0.05f, 0.1f));
         }
 
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
         activeRenderer.enabled = true;
+    }
+
+    private IEnumerator StarPowerAnimation()
+    {
+        IsStarPowered = true;
+
+        float duration = 10f;
+        float endTime = Time.time + duration;
+
+        while (Time.time < endTime)
+        {
+            activeRenderer.spriteRenderer.color = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        activeRenderer.spriteRenderer.color = Color.white;
+        IsStarPowered = false;
     }
 
     private void Death()

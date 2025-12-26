@@ -7,7 +7,7 @@ public class PlayerSpriteRenderer : MonoBehaviour
     public Sprite slide;
     public SpriteAnimation run;
 
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer { get; private set; }
     private PlayerMovement movement;
 
     private void Awake()

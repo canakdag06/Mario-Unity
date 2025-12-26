@@ -27,6 +27,12 @@ public class Koopa : MonoBehaviour
         {
             Player player = collision.gameObject.GetComponent<Player>();
 
+            if (player.IsStarPowered)
+            {
+                GetHit();
+                return;
+            }
+
             if (!isShelled)
             {
                 if (transform.DotTest(collision.transform, Vector2.up))
@@ -89,7 +95,7 @@ public class Koopa : MonoBehaviour
 
     private void OnBecameInvisible()
     {
-        if(isSliding)
+        if (isSliding)
         {
             Destroy(gameObject);
         }

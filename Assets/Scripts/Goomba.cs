@@ -28,6 +28,10 @@ public class Goomba : MonoBehaviour
             {
                 Flatten();
             }
+            else if (player.IsStarPowered)
+            {
+                GetHit();
+            }
             else
             {
                 player.Hit();
