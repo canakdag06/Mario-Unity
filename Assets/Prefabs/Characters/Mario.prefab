@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2168797837255377948}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 0, y: 0.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: c8948c73d8a46e64ca8005870e022a0f, type: 3}
+  m_Sprite: {fileID: -4300721584263116383, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -101,9 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953774ded16901e48b3fea7e64ea269d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idle: {fileID: 21300000, guid: c8948c73d8a46e64ca8005870e022a0f, type: 3}
-  jump: {fileID: 21300000, guid: bb255a00ccdf98c4d884beb2883014a6, type: 3}
-  slide: {fileID: 21300000, guid: 446bab538fff9ee468e7567e72eb501b, type: 3}
+  idle: {fileID: -4300721584263116383, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
+  jump: {fileID: 1109687603413664886, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
+  slide: {fileID: 5740100314215327209, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
   run: {fileID: 8584183856420834456}
 --- !u!114 &8584183856420834456
 MonoBehaviour:
@@ -118,10 +118,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 90913e4ca4f50094c915fae64209cbc1, type: 3}
-  - {fileID: 21300000, guid: 15855e704eb39704884701bf77e1799d, type: 3}
-  - {fileID: 21300000, guid: be1a0efa2f5cbd64484bee9a213b88ae, type: 3}
-  - {fileID: 21300000, guid: 15855e704eb39704884701bf77e1799d, type: 3}
+  - {fileID: -1281953291003957293, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
+  - {fileID: -5188551814952082331, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
+  - {fileID: -3289200234992376777, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
+  - {fileID: -5188551814952082331, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
   FPS: 8
   loop: 1
 --- !u!1 &3316119029776494121
@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 1442981830916217621}
-  deadSprite: {fileID: 21300000, guid: 8100ba24688f6ea45bafd284285ce3ad, type: 3}
+  deadSprite: {fileID: 7301754939111470067, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
 --- !u!1 &7081434232835289145
 GameObject:
   m_ObjectHideFlags: 0
@@ -348,7 +348,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 3
-  m_Sprite: {fileID: 21300000, guid: 4d05e5346daf0ef4689478490cc6de8f, type: 3}
+  m_Sprite: {fileID: 4120955195336003847, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -371,9 +371,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 953774ded16901e48b3fea7e64ea269d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idle: {fileID: 21300000, guid: 4d05e5346daf0ef4689478490cc6de8f, type: 3}
-  jump: {fileID: 21300000, guid: 40d3713a09a335d45a1fef435bc934ad, type: 3}
-  slide: {fileID: 21300000, guid: 7499a31997db09048b755afc3fe82f43, type: 3}
+  idle: {fileID: 4120955195336003847, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
+  jump: {fileID: -5383407867553921227, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
+  slide: {fileID: -1013760585851560218, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
   run: {fileID: 8760850297119039241}
 --- !u!114 &8760850297119039241
 MonoBehaviour:
@@ -388,9 +388,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprites:
-  - {fileID: 21300000, guid: 7a6e683b61e77db458019aa9dca4ed6d, type: 3}
-  - {fileID: 21300000, guid: 8667f6813592f1f4a9aa228f2b5ab1fb, type: 3}
-  - {fileID: 21300000, guid: 49310be8981af754f96370618235a4ad, type: 3}
-  - {fileID: 21300000, guid: 8667f6813592f1f4a9aa228f2b5ab1fb, type: 3}
+  - {fileID: -8340684894021347341, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
+  - {fileID: 8029536824772267597, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
+  - {fileID: -1516733375807340374, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
+  - {fileID: 8029536824772267597, guid: 109198aa4a3029f4ab16583e0b11e121, type: 3}
   FPS: 8
   loop: 1
