@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 5
-  m_Sprite: {fileID: 21300000, guid: fbcc8e7bfb69e7e4691f15d7ef8860b5, type: 3}
+  m_Sprite: {fileID: -898372350, guid: 2c6cd51a85283794eaa962def5960be0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -149,5 +149,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 0}
   blockCoinPrefab: {fileID: 4254314156195553147, guid: ad68a076f3c8ab04db1b9de1515026c7, type: 3}
-  emptyBlock: {fileID: 21300000, guid: addcfe64ba3c6bf4ea1651b932762d9a, type: 3}
+  emptyBlock: {fileID: -1751659740, guid: 2c6cd51a85283794eaa962def5960be0, type: 3}
   maxHits: 1
