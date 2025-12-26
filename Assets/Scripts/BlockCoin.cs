@@ -23,7 +23,7 @@ public class BlockCoin : MonoBehaviour
     private IEnumerator Move(Vector3 from, Vector3 to)
     {
         float elapsed = 0;
-        float duration = 0.25f;
+        float duration = 0.3f;
 
         while (elapsed < duration)
         {
