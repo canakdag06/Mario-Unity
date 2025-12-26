@@ -176,13 +176,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: OverWorld_1
+      name: PipeTop
       rect:
         serializedVersion: 2
         x: 96
-        y: 96
+        y: 112
         width: 32
-        height: 32
+        height: 16
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,6 +395,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: PipeBottom
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 96
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a858a7a5f4ba4b4191cdcddf9a22b77
+      internalID: -1814309660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -416,10 +438,11 @@ TextureImporter:
       GroundBlock: 8372578944910593850
       HardBlock: 2087178353
       MysteryBlock: -898372350
-      OverWorld_1: -9101029080546125069
       OverWorld_2: 1324536428085414010
       OverWorld_3: -8854631158103421569
       OverWorld_5: -5508570917637823303
+      PipeBottom: -1814309660
+      PipeTop: -9101029080546125069
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
