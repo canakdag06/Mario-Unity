@@ -10090,6 +10090,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
+      propertyPath: emptyBlock
+      value: 
+      objectReference: {fileID: -1751659740, guid: 2c6cd51a85283794eaa962def5960be0, type: 3}
+    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: blockCoinPrefab
       value: 
       objectReference: {fileID: 4254314156195553147, guid: ad68a076f3c8ab04db1b9de1515026c7, type: 3}
