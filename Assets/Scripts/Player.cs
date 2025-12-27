@@ -97,8 +97,8 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
         }
 
-        activeRenderer.spriteRenderer.color = Color.white;
         IsStarPowered = false;
+        activeRenderer.spriteRenderer.color = Color.white;
     }
 
     private void Death()
