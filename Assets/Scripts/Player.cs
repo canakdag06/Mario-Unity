@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
         bigRenderer.enabled = true;
         activeRenderer = bigRenderer;
 
-        AdjustCollider(1f, 1.8f, 0f, 0.4f);
+        AdjustCollider(0f, 0.4f, 1f, 1.8f);
 
         StartCoroutine(ScaleAnimation());
     }
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
         bigRenderer.enabled = false;
         activeRenderer = smallRenderer;
 
-        AdjustCollider(0.7f, 1f, 0f, 0f);
+        AdjustCollider(0f, 0f, 0.7f, 1f);
 
         StartCoroutine(ScaleAnimation());
     }
@@ -126,11 +126,11 @@ public class Player : MonoBehaviour
     {
         if (activeRenderer == bigRenderer)
         {
-            AdjustCollider(1f, 1.3f, 0f, 0.15f);
+            AdjustCollider(0f, 0.15f, 1f, 1.3f);
         }
         else if (activeRenderer == smallRenderer)
         {
-            AdjustCollider(0.7f, 1f, 0f, 0f);
+            AdjustCollider(0f, 0f, 0.7f, 1f);
         }
     }
 
@@ -138,17 +138,17 @@ public class Player : MonoBehaviour
     {
         if (activeRenderer == bigRenderer)
         {
-            AdjustCollider(1f, 1.8f, 0f, 0.4f);
+            AdjustCollider(0f, 0.4f, 1f, 1.8f);
         }
         else if (activeRenderer == smallRenderer)
         {
-            AdjustCollider(0.7f, 1f, 0f, 0f);
+            AdjustCollider(0f, 0f, 0.7f, 1f);
         }
     }
 
-    private void AdjustCollider(float sizeX, float sizeY, float offsetX, float offsetY)
+    private void AdjustCollider(float offsetX, float offsetY, float sizeX, float sizeY)
     {
-        capsuleCollider.size = new Vector2(sizeX, sizeY);
         capsuleCollider.offset = new Vector2(offsetX, offsetY);
+        capsuleCollider.size = new Vector2(sizeX, sizeY);
     }
 }
