@@ -53,6 +53,8 @@ public class Player : MonoBehaviour
 
     public void Grow()
     {
+        if (IsBig) return;
+
         smallRenderer.enabled = false;
         bigRenderer.enabled = true;
         activeRenderer = bigRenderer;
