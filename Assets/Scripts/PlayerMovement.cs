@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -26,6 +27,12 @@ public class PlayerMovement : MonoBehaviour
     private new Camera camera;
     private bool jumpButtonStarted;
     private bool jumpButtonPerformed;
+
+
+    public Action EnableCouchCollider;
+    public Action DisableCouchCollider;
+    private bool isTryingCrouch = false;
+
 
     private LayerMask colliderMask;
 
@@ -86,6 +93,12 @@ public class PlayerMovement : MonoBehaviour
 
         if (Grounded)
         {
+            if (isTryingCrouch)
+            {
+                Crouching = true;
+                EnableCouchCollider?.Invoke();
+            }
+
             GroundedMovement();
         }
 
@@ -167,14 +180,16 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleCrouchStarted()
     {
-        Crouching = true;
-        Debug.Log("Crouch: " + Crouching);
+        isTryingCrouch = true;
     }
 
     private void HandleCrouchCancelled()
     {
+        isTryingCrouch = false;
         Crouching = false;
-        Debug.Log("Crouch: " + Crouching);
+        DisableCouchCollider?.Invoke();
+        //Crouching = false;
+        //Debug.Log("Crouch: " + Crouching);
     }
 
     private void ApplyGravity()

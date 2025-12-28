@@ -14,12 +14,26 @@ public class Player : MonoBehaviour
     private DeathAnimation deathAnimation;
     private CapsuleCollider2D capsuleCollider;
     private PlayerSpriteRenderer activeRenderer;
+    private PlayerMovement playerMovement;
 
     private void Awake()
     {
         deathAnimation = GetComponent<DeathAnimation>();
         capsuleCollider = GetComponent<CapsuleCollider2D>();
         activeRenderer = smallRenderer;
+        playerMovement = GetComponent<PlayerMovement>();
+    }
+
+    private void OnEnable()
+    {
+        playerMovement.EnableCouchCollider += OnEnableCrouchCollider;
+        playerMovement.DisableCouchCollider += OnDisableCrouchCollider;
+    }
+
+    private void OnDisable()
+    {
+        playerMovement.EnableCouchCollider -= OnEnableCrouchCollider;
+        playerMovement.DisableCouchCollider -= OnDisableCrouchCollider;
     }
 
     public void Hit()
@@ -43,8 +57,7 @@ public class Player : MonoBehaviour
         bigRenderer.enabled = true;
         activeRenderer = bigRenderer;
 
-        capsuleCollider.size = new Vector2(1f, 2f);
-        capsuleCollider.offset = new Vector2(0f, 0.5f);
+        AdjustCollider(1f, 1.8f, 0f, 0.4f);
 
         StartCoroutine(ScaleAnimation());
     }
@@ -60,8 +73,7 @@ public class Player : MonoBehaviour
         bigRenderer.enabled = false;
         activeRenderer = smallRenderer;
 
-        capsuleCollider.size = new Vector2(1f, 1f);
-        capsuleCollider.offset = new Vector2(0f, 0f);
+        AdjustCollider(0.7f, 1f, 0f, 0f);
 
         StartCoroutine(ScaleAnimation());
     }
@@ -108,5 +120,35 @@ public class Player : MonoBehaviour
         deathAnimation.enabled = true;
 
         GameManager.Instance.ResetLevel(3f);
+    }
+
+    private void OnEnableCrouchCollider()
+    {
+        if (activeRenderer == bigRenderer)
+        {
+            AdjustCollider(1f, 1.3f, 0f, 0.15f);
+        }
+        else if (activeRenderer == smallRenderer)
+        {
+            AdjustCollider(0.7f, 1f, 0f, 0f);
+        }
+    }
+
+    private void OnDisableCrouchCollider()
+    {
+        if (activeRenderer == bigRenderer)
+        {
+            AdjustCollider(1f, 1.8f, 0f, 0.4f);
+        }
+        else if (activeRenderer == smallRenderer)
+        {
+            AdjustCollider(0.7f, 1f, 0f, 0f);
+        }
+    }
+
+    private void AdjustCollider(float sizeX, float sizeY, float offsetX, float offsetY)
+    {
+        capsuleCollider.size = new Vector2(sizeX, sizeY);
+        capsuleCollider.offset = new Vector2(offsetX, offsetY);
     }
 }
