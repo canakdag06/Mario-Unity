@@ -10,6 +10,8 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
 
     // GAMEPLAY CONTROLS
     public event Action<Vector2> MoveEvent;
+    public event Action CrouchStartedEvent;
+    public event Action CrouchCancelledEvent;
     public event Action JumpStartedEvent;
     public event Action JumpPerformedEvent;
     public event Action JumpCanceledEvent;
@@ -56,6 +58,14 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         MoveEvent?.Invoke(context.ReadValue<Vector2>());
     }
 
+    public void OnCrouch(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+            CrouchStartedEvent?.Invoke();
+        else if (context.phase == InputActionPhase.Canceled)
+            CrouchCancelledEvent?.Invoke();
+    }
+
     public void OnPause(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
@@ -84,5 +94,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
             SetGameplay();
         }
     }
+
+    // ------------------------------------ //
 }
 
