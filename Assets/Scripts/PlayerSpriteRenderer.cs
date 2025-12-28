@@ -5,6 +5,7 @@ public class PlayerSpriteRenderer : MonoBehaviour
     public Sprite idle;
     public Sprite jump;
     public Sprite slide;
+    public Sprite crouch;
     public SpriteAnimation run;
 
     public SpriteRenderer spriteRenderer { get; private set; }
@@ -34,6 +35,10 @@ public class PlayerSpriteRenderer : MonoBehaviour
         if (movement.Jumping)
         {
             spriteRenderer.sprite = jump;
+        }
+        else if (movement.Crouching)
+        {
+            spriteRenderer.sprite = crouch;
         }
         else if (movement.Sliding)
         {

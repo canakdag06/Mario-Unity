@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public bool Jumping { get; private set; }
     public bool Running => Mathf.Abs(velocity.x) > 0.25f;
     public bool Sliding => inputAxis * velocity.x < 0f; // is inputAxis and velocity.x are opposite signs
+    public bool Crouching { get; private set; }
+
+    public Vector2 Input { get; private set; }
 
     private Vector2 velocity;
     private float inputAxis;
@@ -23,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     private new Camera camera;
     private bool jumpButtonStarted;
     private bool jumpButtonPerformed;
+
     private LayerMask colliderMask;
 
     private void Awake()
@@ -36,9 +40,13 @@ public class PlayerMovement : MonoBehaviour
         if (inputReader != null)
         {
             inputReader.MoveEvent += HandleMovement;
+
             inputReader.JumpStartedEvent += HandleJumpStarted;
             inputReader.JumpPerformedEvent += HandleJumpPerformed;
             inputReader.JumpCanceledEvent += HandleJumpCanceled;
+
+            inputReader.CrouchStartedEvent += HandleCrouchStarted;
+            inputReader.CrouchCancelledEvent += HandleCrouchCancelled;
         }
 
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
@@ -59,6 +67,9 @@ public class PlayerMovement : MonoBehaviour
             inputReader.JumpStartedEvent -= HandleJumpStarted;
             inputReader.JumpPerformedEvent -= HandleJumpPerformed;
             inputReader.JumpCanceledEvent -= HandleJumpCanceled;
+
+            inputReader.CrouchStartedEvent -= HandleCrouchStarted;
+            inputReader.CrouchCancelledEvent -= HandleCrouchCancelled;
         }
 
         rigidbody.bodyType = RigidbodyType2D.Kinematic;
@@ -96,12 +107,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleMovement(Vector2 direction)
     {
+        this.Input = direction;
+        Debug.Log("Input: " + Input);
         inputAxis = direction.x;
     }
 
     private void HorizontalMovement()
     {
-        velocity.x = Mathf.MoveTowards(velocity.x, inputAxis * moveSpeed, moveSpeed * Time.deltaTime);
+        float targetSpeed = Crouching ? 0f : inputAxis * moveSpeed;
+        velocity.x = Mathf.MoveTowards(velocity.x, targetSpeed, moveSpeed * Time.deltaTime);
 
         if (rigidbody.Raycast(Vector2.right * velocity.x, colliderMask))
         {
@@ -149,6 +163,18 @@ public class PlayerMovement : MonoBehaviour
         {
             rigidbody.linearVelocity = new Vector2(rigidbody.linearVelocity.x, rigidbody.linearVelocity.y * 0.5f);
         }
+    }
+
+    private void HandleCrouchStarted()
+    {
+        Crouching = true;
+        Debug.Log("Crouch: " + Crouching);
+    }
+
+    private void HandleCrouchCancelled()
+    {
+        Crouching = false;
+        Debug.Log("Crouch: " + Crouching);
     }
 
     private void ApplyGravity()
