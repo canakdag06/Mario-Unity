@@ -35,6 +35,7 @@ public class Goomba : MonoBehaviour
             else
             {
                 player.Hit();
+                entityMovement.direction.x *= -1f;
             }
         }
     }
