@@ -84,6 +84,7 @@ public class Player : MonoBehaviour
     {
         float duration = 1f;
         float endTime = Time.time + duration;
+        capsuleCollider.enabled = false;
 
         while (Time.time < endTime)
         {
@@ -96,6 +97,7 @@ public class Player : MonoBehaviour
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
         activeRenderer.enabled = true;
+        capsuleCollider.enabled = true;
     }
 
     private IEnumerator StarPowerAnimation()
