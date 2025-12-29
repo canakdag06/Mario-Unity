@@ -17,7 +17,6 @@ public class Pipe : MonoBehaviour
             if ((playerMovement.Input.x != 0f && playerMovement.Input.x == enterDirection.x)
                 || (playerMovement.Crouching && enterDirection == Vector3.down))
             {
-
                 StartCoroutine(EnterPipeAnimation(collision.transform));
             }
         }
@@ -29,6 +28,17 @@ public class Pipe : MonoBehaviour
 
         Vector3 enteredPosition = transform.position + enterDirection;
         yield return Move(player, enteredPosition);
+        yield return new WaitForSeconds(1f);
+
+        if (exitDirection != Vector3.zero)
+        {
+            player.position = connection.position - exitDirection;
+            yield return Move(player, connection.position + exitDirection);
+        }
+        else
+        {
+            player.position = connection.position;
+        }
     }
 
     private IEnumerator Move(Transform player, Vector3 endPosition)
