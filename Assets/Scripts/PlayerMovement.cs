@@ -182,7 +182,7 @@ public class PlayerMovement : MonoBehaviour
         isTryingCrouch = true;
     }
 
-    private void HandleCrouchCancelled()
+    public void HandleCrouchCancelled()
     {
         isTryingCrouch = false;
         Crouching = false;
@@ -215,6 +215,11 @@ public class PlayerMovement : MonoBehaviour
         {
             velocity.y = 0f;
         }
+    }
+
+    public void ResetCrouchState()
+    {
+        Crouching = false;
     }
 
 }

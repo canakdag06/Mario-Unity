@@ -24,11 +24,15 @@ public class Pipe : MonoBehaviour
 
     private IEnumerator EnterPipeAnimation(Transform player)
     {
-        player.GetComponent<PlayerMovement>().enabled = false;
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        playerMovement.enabled = false;
 
         Vector3 enteredPosition = transform.position + enterDirection;
         yield return Move(player, enteredPosition);
         yield return new WaitForSeconds(1f);
+
+        bool isUnderground = connection.position.y < 0f;
+        Camera.main.GetComponent<SideScroll>().SetUnderGround(isUnderground);
 
         if (exitDirection != Vector3.zero)
         {
@@ -39,6 +43,9 @@ public class Pipe : MonoBehaviour
         {
             player.position = connection.position;
         }
+
+        playerMovement.enabled = true;
+        playerMovement.HandleCrouchCancelled();
     }
 
     private IEnumerator Move(Transform player, Vector3 endPosition)
