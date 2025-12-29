@@ -121,7 +121,6 @@ public class PlayerMovement : MonoBehaviour
     private void HandleMovement(Vector2 direction)
     {
         this.Input = direction;
-        Debug.Log("Input: " + Input);
         inputAxis = direction.x;
     }
 

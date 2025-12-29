@@ -37,7 +37,11 @@ public class Goomba : MonoBehaviour
                 player.Hit();
             }
         }
-        else if (collision.gameObject.layer == slidingShellLayer)
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == slidingShellLayer)
         {
             GetHit();
         }
@@ -56,6 +60,7 @@ public class Goomba : MonoBehaviour
 
     private void GetHit()
     {
+        collider.enabled = false;
         entityMovement.enabled = false;
         deathAnimation.enabled = true;
 

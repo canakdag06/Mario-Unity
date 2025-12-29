@@ -44,22 +44,27 @@ public class Koopa : MonoBehaviour
                     player.Hit();
                 }
             }
-            else
-            {
-                if (!isSliding)
-                {
-                    Vector2 direction = new(transform.position.x - collision.gameObject.transform.position.x, 0f);
-                    Slide(direction);
-                }
-                else
-                {
-                    player.Hit();
-                }
-            }
         }
         else if (!isShelled && collision.gameObject.layer == slidingShellLayer)
         {
             GetHit();
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (isShelled && collision.CompareTag("Player"))
+        {
+            if (!isSliding)
+            {
+                Vector2 direction = new Vector2(transform.position.x - collision.transform.position.x, 0f);
+                Slide(direction);
+            }
+            else
+            {
+                Player player = collision.GetComponent<Player>();
+                player.Hit();
+            }
         }
     }
 
@@ -71,8 +76,6 @@ public class Koopa : MonoBehaviour
         entityMovement.enabled = false;
         spriteAnimation.enabled = false;
         spriteRenderer.sprite = shellSprite;
-
-        gameObject.layer = slidingShellLayer;
     }
 
     private void Slide(Vector2 direction)
@@ -83,6 +86,8 @@ public class Koopa : MonoBehaviour
         entityMovement.direction = direction.normalized;
         entityMovement.speed = slidingSpeed;
         entityMovement.enabled = true;
+
+        gameObject.layer = slidingShellLayer;
     }
 
     private void GetHit()
