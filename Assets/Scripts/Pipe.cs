@@ -15,7 +15,8 @@ public class Pipe : MonoBehaviour
             PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
 
             if ((playerMovement.Input.x != 0f && playerMovement.Input.x * enterDirection.x > 0)
-                || (playerMovement.Crouching && enterDirection == Vector3.down))
+                || (playerMovement.Crouching && enterDirection == Vector3.down)
+                && playerMovement.Grounded)
             {
                 StartCoroutine(EnterPipeAnimation(collision.transform));
             }
