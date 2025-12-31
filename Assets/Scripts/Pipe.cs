@@ -58,7 +58,6 @@ public class Pipe : MonoBehaviour
 
         while (elapsed < duration)
         {
-            Debug.Log("Player: " + player.transform.position);
             float t = elapsed / duration;
 
             player.position = Vector3.Lerp(startPosition, endPosition, t);
