@@ -100,7 +100,7 @@ BoxCollider2D:
   m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a5029ade27db9f24ea40cd43c8f70855, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -168,5 +168,5 @@ MonoBehaviour:
   - {fileID: -883253074, guid: da4d403b39395a14fa5cf8db4e6c4fcf, type: 3}
   - {fileID: -1462155073, guid: da4d403b39395a14fa5cf8db4e6c4fcf, type: 3}
   - {fileID: -1007892887, guid: da4d403b39395a14fa5cf8db4e6c4fcf, type: 3}
-  FPS: 5
+  FPS: 10
   loop: 1
