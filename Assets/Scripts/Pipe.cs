@@ -14,7 +14,7 @@ public class Pipe : MonoBehaviour
         {
             PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
 
-            if ((playerMovement.Input.x != 0f && playerMovement.Input.x == enterDirection.x)
+            if ((playerMovement.Input.x != 0f && playerMovement.Input.x * enterDirection.x > 0)
                 || (playerMovement.Crouching && enterDirection == Vector3.down))
             {
                 StartCoroutine(EnterPipeAnimation(collision.transform));
@@ -27,7 +27,7 @@ public class Pipe : MonoBehaviour
         PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
         playerMovement.enabled = false;
 
-        Vector3 enteredPosition = transform.position + enterDirection;
+        Vector3 enteredPosition = player.transform.position + enterDirection;
         yield return Move(player, enteredPosition);
         yield return new WaitForSeconds(1f);
 
@@ -57,6 +57,7 @@ public class Pipe : MonoBehaviour
 
         while (elapsed < duration)
         {
+            Debug.Log("Player: " + player.transform.position);
             float t = elapsed / duration;
 
             player.position = Vector3.Lerp(startPosition, endPosition, t);
