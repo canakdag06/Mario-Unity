@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public bool Running => Mathf.Abs(velocity.x) > 0.25f;
     public bool Sliding => inputAxis * velocity.x < 0f; // is inputAxis and velocity.x are opposite signs
     public bool Crouching { get; private set; }
+    public bool Climbing { get; set; }
 
     public Vector2 Input { get; private set; }
 
@@ -87,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (Climbing) { return; }
+
         HorizontalMovement();
 
         Grounded = rigidbody.Raycast(Vector2.down, colliderMask);

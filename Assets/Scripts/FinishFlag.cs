@@ -19,9 +19,10 @@ public class FinishFlag : MonoBehaviour
 
     private IEnumerator LevelCompleteSequence(Transform player)
     {
-        player.GetComponent<PlayerMovement>().enabled = false;
-
+        PlayerMovement playerMovement = player.GetComponent<PlayerMovement>();
+        playerMovement.Climbing = true;
         yield return MoveTo(player, end.position);
+        playerMovement.Climbing = false;
         yield return MoveTo(player, player.position + Vector3.right);
         yield return MoveTo(player, player.position + Vector3.right + Vector3.down);
         yield return MoveTo(player, castle.position);

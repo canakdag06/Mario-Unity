@@ -6,6 +6,7 @@ public class PlayerSpriteRenderer : MonoBehaviour
     public Sprite jump;
     public Sprite slide;
     public Sprite crouch;
+    public Sprite climb;
     public SpriteAnimation run;
 
     public SpriteRenderer spriteRenderer { get; private set; }
@@ -32,7 +33,11 @@ public class PlayerSpriteRenderer : MonoBehaviour
     {
         run.enabled = movement.Running;
 
-        if (movement.Jumping)
+        if (movement.Climbing)
+        {
+            spriteRenderer.sprite = climb;
+        }
+        else if (movement.Jumping)
         {
             spriteRenderer.sprite = jump;
         }
