@@ -246,11 +246,6 @@ Transform:
   - {fileID: 317397078}
   m_Father: {fileID: 366988217}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!198 &18682348 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1660636090936796146, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-  m_PrefabInstance: {fileID: 1459190940032056540}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &63503922
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -810,18 +805,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1360,18 +1343,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1957,18 +1928,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2565,9 +2524,21 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
+      propertyPath: emptyBlock
+      value: 
+      objectReference: {fileID: -1751659740, guid: 2c6cd51a85283794eaa962def5960be0, type: 3}
+    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: itemPrefab
       value: 
       objectReference: {fileID: 7858865321606480270, guid: fe4ad72423e404a4da5d34ee3eca03c0, type: 3}
+    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
+      propertyPath: brickPieces
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
+      propertyPath: isBreakable
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3239,18 +3210,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3864,18 +3823,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4173,18 +4120,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4448,18 +4383,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4752,18 +4675,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4825,18 +4736,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5152,18 +5051,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5303,18 +5190,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6268,18 +6143,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6522,18 +6385,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6759,18 +6610,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7097,18 +6936,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7170,18 +6997,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7245,18 +7060,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7318,18 +7121,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7454,18 +7245,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8454,18 +8233,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8598,18 +8365,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8772,18 +8527,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9684,18 +9427,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9967,18 +9698,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10701,18 +10420,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11034,18 +10741,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11714,18 +11409,6 @@ PrefabInstance:
     - target: {fileID: 5306377684786138834, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12428,6 +12111,14 @@ PrefabInstance:
       propertyPath: emptyBlock
       value: 
       objectReference: {fileID: -1751659740, guid: 2c6cd51a85283794eaa962def5960be0, type: 3}
+    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
+      propertyPath: brickPieces
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
+      propertyPath: isBreakable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: blockCoinPrefab
       value: 
@@ -13865,18 +13556,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: maxHits
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: brickPieces
-      value: 
-      objectReference: {fileID: 18682348}
-    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
-      propertyPath: isBreakable
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14037,63 +13716,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9cc3922fa623a64eaff6abf9a1c864e, type: 3}
---- !u!1001 &1459190940032056540
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3256069995216820685, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 33.29
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256069995216820685, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 6.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256069995216820685, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256069995216820685, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256069995216820685, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256069995216820685, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256069995216820685, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256069995216820685, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256069995216820685, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3256069995216820685, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4007233951604697170, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
-      propertyPath: m_Name
-      value: BrickPieces
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}
 --- !u!1001 &2700609523338283221
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14217,4 +13839,3 @@ SceneRoots:
   - {fileID: 619394802}
   - {fileID: 366988217}
   - {fileID: 7746880797321621301}
-  - {fileID: 1459190940032056540}
