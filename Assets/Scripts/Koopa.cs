@@ -75,6 +75,8 @@ public class Koopa : MonoBehaviour
         entityMovement.enabled = false;
         deathAnimation.enabled = true;
 
+
+        transform.eulerAngles = new Vector3(180f, 0f, 0f);
         Destroy(gameObject, 3f);
     }
 
