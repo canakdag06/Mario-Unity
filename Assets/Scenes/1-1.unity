@@ -11804,13 +11804,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3759588534484852046, guid: f92ab50e354733d4d80865872f70bc77, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4695795207263969165, guid: f92ab50e354733d4d80865872f70bc77, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 4695795207263969165, guid: f92ab50e354733d4d80865872f70bc77, type: 3}
       propertyPath: castle
       value: 
       objectReference: {fileID: 1521811827}
+    - target: {fileID: 4725409921224424700, guid: f92ab50e354733d4d80865872f70bc77, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5268792143209876475, guid: f92ab50e354733d4d80865872f70bc77, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5349620787844847310, guid: f92ab50e354733d4d80865872f70bc77, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5665438348323483314, guid: f92ab50e354733d4d80865872f70bc77, type: 3}
       propertyPath: m_Name
       value: FinishFlag
+      objectReference: {fileID: 0}
+    - target: {fileID: 5665438348323483314, guid: f92ab50e354733d4d80865872f70bc77, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

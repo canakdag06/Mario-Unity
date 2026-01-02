@@ -303,7 +303,7 @@ MonoBehaviour:
   flag: {fileID: 1341773279026463805}
   end: {fileID: 4702878412271684520}
   castle: {fileID: 0}
-  speed: 6
+  speed: 5
 --- !u!1001 &9132505783976482107
 PrefabInstance:
   m_ObjectHideFlags: 0

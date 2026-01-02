@@ -6,7 +6,7 @@ public class FinishFlag : MonoBehaviour
     [SerializeField] private Transform flag;
     [SerializeField] private Transform end;
     [SerializeField] private Transform castle;
-    [SerializeField] private float speed = 6f;
+    [SerializeField] private float speed = 5f;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -32,7 +32,7 @@ public class FinishFlag : MonoBehaviour
 
     private IEnumerator MoveTo(Transform subject, Vector3 target)
     {
-        while ((subject.position - target).sqrMagnitude > 0f)
+        while ((subject.position - target).sqrMagnitude > 0.05f)
         {
             subject.position = Vector3.MoveTowards(subject.position, target, speed * Time.deltaTime);
             yield return null;
