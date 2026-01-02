@@ -152,5 +152,8 @@ public class Player : MonoBehaviour
     {
         capsuleCollider.offset = new Vector2(offsetX, offsetY);
         capsuleCollider.size = new Vector2(sizeX, sizeY);
+
+        smallRenderer.spriteRenderer.color = Color.white;
+        bigRenderer.spriteRenderer.color = Color.white;
     }
 }
