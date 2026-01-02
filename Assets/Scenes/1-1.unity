@@ -2926,9 +2926,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 572196649}
     m_Modifications:
+    - target: {fileID: -5625199275415242060, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 723875324059394734, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
       propertyPath: m_Name
       value: MysteryBlock (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 723875324059394734, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2588975496939819791, guid: 92fd740efecf5ba478840c3258a74a14, type: 3}
       propertyPath: itemPrefab

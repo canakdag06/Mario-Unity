@@ -38,6 +38,19 @@ public class BlockHit : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            if (collision.transform.DotTest(transform, Vector2.up))
+            {
+                Collider2D collider = GetComponent<Collider2D>();
+                collider.isTrigger = false;
+                Hit();
+            }
+        }
+    }
+
     private void Hit()
     {
         spriteRenderer.enabled = true; // if its a hidden block
