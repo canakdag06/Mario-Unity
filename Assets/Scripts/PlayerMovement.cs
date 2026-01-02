@@ -26,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
 
     private new Rigidbody2D rigidbody;
     private new Camera camera;
+    private Player player;
+
     private bool jumpButtonStarted;
     private bool jumpButtonPerformed;
 
@@ -40,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
+        player = GetComponent<Player>();
         camera = Camera.main;
     }
 
@@ -207,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            if (transform.DotTest(collision.transform, Vector2.down))
+            if (transform.DotTest(collision.transform, Vector2.down) && !player.IsStarPowered)
             {
                 velocity.y = JumpForce / 2f;
                 Jumping = true;

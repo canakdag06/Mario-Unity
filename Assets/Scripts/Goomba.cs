@@ -24,13 +24,13 @@ public class Goomba : MonoBehaviour
         {
             Player player = collision.gameObject.GetComponent<Player>();
 
-            if (transform.DotTest(collision.transform, Vector2.up))
-            {
-                Flatten();
-            }
-            else if (player.IsStarPowered)
+            if (player.IsStarPowered)
             {
                 GetHit();
+            }
+            else if (transform.DotTest(collision.transform, Vector2.up))
+            {
+                Flatten();
             }
             else
             {
