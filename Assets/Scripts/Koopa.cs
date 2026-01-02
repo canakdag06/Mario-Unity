@@ -70,6 +70,13 @@ public class Koopa : MonoBehaviour
         }
     }
 
+    public void GetHit()
+    {
+        entityMovement.enabled = false;
+        deathAnimation.enabled = true;
+
+        Destroy(gameObject, 3f);
+    }
 
     private void EnterShell()
     {
@@ -92,13 +99,6 @@ public class Koopa : MonoBehaviour
         gameObject.layer = slidingShellLayer;
     }
 
-    private void GetHit()
-    {
-        entityMovement.enabled = false;
-        deathAnimation.enabled = true;
-
-        Destroy(gameObject, 3f);
-    }
 
     private void OnBecameInvisible()
     {

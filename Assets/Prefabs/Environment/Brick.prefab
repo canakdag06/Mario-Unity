@@ -127,7 +127,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.16}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -151,3 +151,5 @@ MonoBehaviour:
   blockCoinPrefab: {fileID: 0}
   emptyBlock: {fileID: 21300000, guid: addcfe64ba3c6bf4ea1651b932762d9a, type: 3}
   maxHits: -1
+  isBreakable: 1
+  brickPieces: {fileID: 4007233951604697170, guid: db5d497f9c532bc42b34b60152d3cd30, type: 3}

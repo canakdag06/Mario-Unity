@@ -48,6 +48,14 @@ public class Goomba : MonoBehaviour
         }
     }
 
+    public void GetHit()
+    {
+        collider.enabled = false;
+        entityMovement.enabled = false;
+        deathAnimation.enabled = true;
+
+        Destroy(gameObject, 3f);
+    }
 
     private void Flatten()
     {
@@ -59,12 +67,4 @@ public class Goomba : MonoBehaviour
         Destroy(gameObject, 1f);
     }
 
-    private void GetHit()
-    {
-        collider.enabled = false;
-        entityMovement.enabled = false;
-        deathAnimation.enabled = true;
-
-        Destroy(gameObject, 3f);
-    }
 }

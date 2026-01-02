@@ -7,6 +7,8 @@ public class BlockHit : MonoBehaviour
     [SerializeField] private GameObject blockCoinPrefab;
     [SerializeField] private Sprite emptyBlock;
     [SerializeField] private int maxHits = -1;
+    [SerializeField] private bool isBreakable = false;
+    [SerializeField] GameObject brickPieces;
 
     private SpriteRenderer spriteRenderer;
 
@@ -23,6 +25,14 @@ public class BlockHit : MonoBehaviour
         {
             if (collision.transform.DotTest(transform, Vector2.up))
             {
+                Player player = collision.gameObject.GetComponent<Player>();
+
+                if (player.IsBig && isBreakable)
+                {
+                    Break();
+                    return;
+                }
+
                 Hit();
             }
         }
@@ -34,7 +44,7 @@ public class BlockHit : MonoBehaviour
 
         maxHits--;
 
-        if (maxHits == 0)
+        if (maxHits == 0 && !isBreakable)
         {
             spriteRenderer.sprite = emptyBlock;
         }
@@ -48,6 +58,14 @@ public class BlockHit : MonoBehaviour
         }
 
         StartCoroutine(Animate());
+    }
+
+    private void Break()
+    {
+        CheckForEnemyOnTop();
+
+        Instantiate(brickPieces, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private IEnumerator Animate()
@@ -89,5 +107,22 @@ public class BlockHit : MonoBehaviour
     {
         GameObject mushroom = Instantiate(itemPrefab, transform.position, Quaternion.identity);
         mushroom.GetComponent<BlockItem>().PopUp();
+    }
+
+    private void CheckForEnemyOnTop()
+    {
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position + Vector3.up * 0.5f, new Vector2(0.8f, 0.1f), 0f, Vector2.up, 0.1f);
+
+        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+        {
+            if (hit.collider.TryGetComponent(out Goomba goomba))
+            {
+                goomba.GetHit();
+            }
+            else if (hit.collider.TryGetComponent(out Koopa koopa))
+            {
+                koopa.GetHit();
+            }
+        }
     }
 }
