@@ -63,8 +63,7 @@ public class BlockHit : MonoBehaviour
     private void Break()
     {
         CheckForEnemyOnTop();
-
-        Instantiate(brickPieces, transform.position, Quaternion.identity);
+        ParticlePool.Instance.GetFromPool(transform.position);
         Destroy(gameObject);
     }
 
