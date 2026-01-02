@@ -59,7 +59,7 @@ public class Player : MonoBehaviour
         bigRenderer.enabled = true;
         activeRenderer = bigRenderer;
 
-        AdjustCollider(0f, 0.4f, 1f, 1.8f);
+        AdjustCollider(0f, 0.4f, 0.8f, 1.8f);
 
         StartCoroutine(ScaleAnimation());
     }
@@ -128,7 +128,7 @@ public class Player : MonoBehaviour
     {
         if (activeRenderer == bigRenderer)
         {
-            AdjustCollider(0f, 0.15f, 1f, 1.3f);
+            AdjustCollider(0f, 0.15f, 0.8f, 1.3f);
         }
         else if (activeRenderer == smallRenderer)
         {
@@ -140,7 +140,7 @@ public class Player : MonoBehaviour
     {
         if (activeRenderer == bigRenderer)
         {
-            AdjustCollider(0f, 0.4f, 1f, 1.8f);
+            AdjustCollider(0f, 0.4f, 0.8f, 1.8f);
         }
         else if (activeRenderer == smallRenderer)
         {
