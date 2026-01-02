@@ -42,7 +42,7 @@ public class Koopa : MonoBehaviour
                 else
                 {
                     player.Hit();
-                    entityMovement.direction.x *= -1f;
+                    entityMovement.ChangeDirection();
                 }
             }
         }
@@ -65,7 +65,7 @@ public class Koopa : MonoBehaviour
             {
                 Player player = collision.GetComponent<Player>();
                 player.Hit();
-                entityMovement.direction.x *= -1f;
+                entityMovement.ChangeDirection();
             }
         }
     }

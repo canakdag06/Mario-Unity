@@ -45,13 +45,20 @@ public class EntityMovement : MonoBehaviour
 
         if (rigidbody.Raycast(direction, colliderMask))
         {
-            direction = -direction;
+            ChangeDirection();
         }
 
         if (rigidbody.Raycast(Vector2.down, colliderMask))
         {
             velocity.y = Mathf.Max(velocity.y, 0f);
         }
+    }
+
+    public void ChangeDirection()
+    {
+        direction = -direction;
+        float angle = (direction.x > 0) ? 0f : 180f;
+        transform.eulerAngles = new Vector3(0f, angle, 0f);
     }
 
     //private void OnDrawGizmos()
