@@ -102,6 +102,7 @@ public class BlockHit : MonoBehaviour
 
         Vector3 initialPosition = transform.localPosition;
         Vector3 secondPosition = initialPosition + Vector3.up * 0.5f;
+        CheckForEnemyOnTop();
 
         yield return Move(initialPosition, secondPosition);
         yield return Move(secondPosition, initialPosition);
