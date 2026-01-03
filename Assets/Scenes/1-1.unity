@@ -2570,6 +2570,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
+      propertyPath: maxHits
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6280517687951898766, guid: ff9f09868d3ce8f4a86c91b03c2eb47f, type: 3}
       propertyPath: emptyBlock
       value: 
       objectReference: {fileID: -1751659740, guid: 2c6cd51a85283794eaa962def5960be0, type: 3}
