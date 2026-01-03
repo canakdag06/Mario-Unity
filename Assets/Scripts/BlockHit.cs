@@ -123,18 +123,12 @@ public class BlockHit : MonoBehaviour
 
     private void CheckForEnemyOnTop()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position + Vector3.up * 0.5f, new Vector2(0.8f, 0.1f), 0f, Vector2.up, 0.1f);
+        Collider2D hit = Physics2D.OverlapBox(transform.position + (Vector3.up * 0.5f), new Vector2(0.8f, 0.2f), 0f, LayerMask.GetMask("Enemy"));
 
-        if (hit.collider != null && hit.collider.CompareTag("Enemy"))
+        if (hit != null)
         {
-            if (hit.collider.TryGetComponent(out Goomba goomba))
-            {
-                goomba.GetHit();
-            }
-            else if (hit.collider.TryGetComponent(out Koopa koopa))
-            {
-                koopa.GetHit();
-            }
+            if (hit.TryGetComponent(out Goomba goomba)) goomba.GetHit();
+            else if (hit.TryGetComponent(out Koopa koopa)) koopa.GetHit();
         }
     }
 }
