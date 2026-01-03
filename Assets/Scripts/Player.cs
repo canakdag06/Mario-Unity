@@ -104,11 +104,17 @@ public class Player : MonoBehaviour
 
         float duration = 10f;
         float endTime = Time.time + duration;
+        float changeRate = 0.1f;
 
         while (Time.time < endTime)
         {
+            if (endTime - Time.time < 3f)
+            {
+                changeRate = 0.3f;
+            }
+
             activeRenderer.spriteRenderer.color = Random.ColorHSV(0f, 1f, 1f, 1f, 1f, 1f);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(changeRate);
         }
 
         IsStarPowered = false;
