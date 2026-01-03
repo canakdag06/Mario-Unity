@@ -76,6 +76,7 @@ public class Player : MonoBehaviour
         if (IsSmall)
         {
             Grow();
+            return;
         }
 
         activeRenderer = firePoweredRenderer;
@@ -99,7 +100,6 @@ public class Player : MonoBehaviour
 
         bigRenderer.enabled = false;
         activeRenderer.enabled = true;
-        Debug.Log("IsFirePowered?: " + IsFirePowered);
         //IsFirePowered = false;
     }
 
