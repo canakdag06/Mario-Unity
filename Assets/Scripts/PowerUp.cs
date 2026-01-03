@@ -36,7 +36,7 @@ public class PowerUp : MonoBehaviour
                 player.GetComponent<Player>().StarPower();
                 break;
             case Type.FireFlower:
-                // player.EnableFireMario();
+                player.GetComponent<Player>().EnableFireMario();
                 Debug.Log("Fire Flower Alýndý!");
                 break;
         }

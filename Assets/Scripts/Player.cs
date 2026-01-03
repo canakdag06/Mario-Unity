@@ -5,9 +5,11 @@ public class Player : MonoBehaviour
 {
     public PlayerSpriteRenderer smallRenderer;
     public PlayerSpriteRenderer bigRenderer;
+    public PlayerSpriteRenderer firePoweredRenderer;
 
     public bool IsSmall => smallRenderer.enabled;
     public bool IsBig => bigRenderer.enabled;
+    public bool IsFirePowered => firePoweredRenderer.enabled;
     public bool IsDead => deathAnimation.enabled;
     public bool IsStarPowered { get; private set; }
 
@@ -40,7 +42,7 @@ public class Player : MonoBehaviour
     {
         if (!IsStarPowered && !IsDead)
         {
-            if (IsBig)
+            if (IsBig || IsFirePowered)
             {
                 Shrink();
             }
@@ -69,10 +71,43 @@ public class Player : MonoBehaviour
         StartCoroutine(StarPowerAnimation());
     }
 
+    public void EnableFireMario()
+    {
+        if (IsSmall)
+        {
+            Grow();
+        }
+
+        activeRenderer = firePoweredRenderer;
+        StartCoroutine(FirePowerAnimation());
+    }
+
+    private IEnumerator FirePowerAnimation()
+    {
+        //IsFirePowered = true;
+
+        float duration = 1f;
+        float endTime = Time.time + duration;
+        float changeRate = 0.1f;
+
+        while (Time.time < endTime)
+        {
+            bigRenderer.enabled = !bigRenderer.enabled;
+            firePoweredRenderer.enabled = !firePoweredRenderer.enabled;
+            yield return new WaitForSeconds(changeRate);
+        }
+
+        bigRenderer.enabled = false;
+        activeRenderer.enabled = true;
+        Debug.Log("IsFirePowered?: " + IsFirePowered);
+        //IsFirePowered = false;
+    }
+
     private void Shrink()
     {
         smallRenderer.enabled = true;
         bigRenderer.enabled = false;
+        firePoweredRenderer.enabled = false;
         activeRenderer = smallRenderer;
 
         AdjustCollider(0f, 0f, 0.7f, 1f);
