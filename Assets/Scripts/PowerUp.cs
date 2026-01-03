@@ -7,7 +7,8 @@ public class PowerUp : MonoBehaviour
         Coin,
         ExtraLife,
         MagicMushroom,
-        Star
+        Star,
+        FireFlower
     }
 
     public Type type;
@@ -33,6 +34,10 @@ public class PowerUp : MonoBehaviour
                 break;
             case Type.Star:
                 player.GetComponent<Player>().StarPower();
+                break;
+            case Type.FireFlower:
+                // player.EnableFireMario();
+                Debug.Log("Fire Flower Alýndý!");
                 break;
         }
 

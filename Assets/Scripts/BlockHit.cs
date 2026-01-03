@@ -4,6 +4,7 @@ using UnityEngine;
 public class BlockHit : MonoBehaviour
 {
     [SerializeField] private GameObject itemPrefab;
+    [SerializeField] private GameObject flowerPrefab;
     [SerializeField] private GameObject blockCoinPrefab;
     [SerializeField] private Sprite emptyBlock;
     [SerializeField] private int maxHits = -1;
@@ -14,9 +15,12 @@ public class BlockHit : MonoBehaviour
 
     private bool isAnimating = false;
 
+    private GameObject currentItemToSpawn;
+
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        currentItemToSpawn = itemPrefab;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -33,7 +37,7 @@ public class BlockHit : MonoBehaviour
                     return;
                 }
 
-                Hit();
+                Hit(player);
             }
         }
     }
@@ -46,12 +50,13 @@ public class BlockHit : MonoBehaviour
             {
                 Collider2D collider = GetComponent<Collider2D>();
                 collider.isTrigger = false;
-                Hit();
+                Player player = collision.gameObject.GetComponent<Player>();
+                Hit(player);
             }
         }
     }
 
-    private void Hit()
+    private void Hit(Player player)
     {
         spriteRenderer.enabled = true; // if its a hidden block
 
@@ -62,11 +67,22 @@ public class BlockHit : MonoBehaviour
             spriteRenderer.sprite = emptyBlock;
         }
 
+        currentItemToSpawn = itemPrefab;
+
         if (itemPrefab == null)
         {
             if (blockCoinPrefab != null)
             {
                 Instantiate(blockCoinPrefab, transform.position, Quaternion.identity);
+            }
+        }
+        else
+        {
+            PowerUp powerUp = itemPrefab.GetComponent<PowerUp>();
+
+            if (powerUp != null && powerUp.type == PowerUp.Type.MagicMushroom && player != null && player.IsBig)
+            {
+                currentItemToSpawn = flowerPrefab;
             }
         }
 
@@ -92,7 +108,7 @@ public class BlockHit : MonoBehaviour
 
         isAnimating = false;
 
-        if (itemPrefab != null)
+        if (currentItemToSpawn != null)
         {
             SpawnItem();
         }
@@ -117,8 +133,8 @@ public class BlockHit : MonoBehaviour
 
     private void SpawnItem()
     {
-        GameObject mushroom = Instantiate(itemPrefab, transform.position, Quaternion.identity);
-        mushroom.GetComponent<BlockItem>().PopUp();
+        GameObject item = Instantiate(currentItemToSpawn, transform.position, Quaternion.identity);
+        item.GetComponent<BlockItem>().PopUp();
     }
 
     private void CheckForEnemyOnTop()
