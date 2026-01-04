@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
-    public float speed = 10f;
-    public Vector2 direction;
+    [SerializeField] private float speed = 10f;
+    private Vector2 direction;
 
     private void Update()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        transform.Translate(speed * Time.deltaTime * direction);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -18,6 +18,11 @@ public class FireBall : MonoBehaviour
     private void OnBecameInvisible()
     {
         ReturnToPool();
+    }
+
+    public void SetDirection(Vector2 dir)
+    {
+        direction = dir;
     }
 
     private void ReturnToPool()

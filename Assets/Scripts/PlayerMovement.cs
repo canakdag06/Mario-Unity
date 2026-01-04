@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float maxJumpHeight = 5f;
     [SerializeField] private float maxJumpTime = 1f;
+
+    private ObjectPool fireballPool;
     public float JumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
     public float Gravity => (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2); // d = Vi*t + (1/2)*a*(t^2)
 
@@ -44,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
         camera = Camera.main;
+        fireballPool = PoolManager.Instance.fireballPool;
     }
 
     private void OnEnable()
@@ -58,6 +61,8 @@ public class PlayerMovement : MonoBehaviour
 
             inputReader.CrouchStartedEvent += HandleCrouchStarted;
             inputReader.CrouchCancelledEvent += HandleCrouchCancelled;
+
+            inputReader.FireEvent += HandleFire;
         }
 
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
@@ -81,6 +86,8 @@ public class PlayerMovement : MonoBehaviour
 
             inputReader.CrouchStartedEvent -= HandleCrouchStarted;
             inputReader.CrouchCancelledEvent -= HandleCrouchCancelled;
+
+            inputReader.FireEvent -= HandleFire;
         }
 
         rigidbody.bodyType = RigidbodyType2D.Kinematic;
@@ -195,6 +202,18 @@ public class PlayerMovement : MonoBehaviour
         DisableCouchCollider?.Invoke();
         //Crouching = false;
         //Debug.Log("Crouch: " + Crouching);
+    }
+
+    private void HandleFire()
+    {
+        GameObject projectile = fireballPool.GetFromPool(transform.position + transform.right);
+
+        if (projectile != null)
+        {
+            FireBall fireball = projectile.GetComponent<FireBall>();
+            fireball.SetDirection(transform.right);
+            projectile.SetActive(true);
+        }
     }
 
     private void ApplyGravity()
