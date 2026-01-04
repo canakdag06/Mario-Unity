@@ -3,10 +3,13 @@ using UnityEngine;
 public class PooledParticle : MonoBehaviour
 {
     private ParticleSystem ps;
+    private ObjectPool pool;
+
 
     private void Awake()
     {
         ps = GetComponent<ParticleSystem>();
+        pool = PoolManager.Instance.particlePool;
     }
 
     private void OnEnable()
@@ -17,6 +20,6 @@ public class PooledParticle : MonoBehaviour
 
     private void Deactivate()
     {
-        ParticlePool.Instance.ReturnToPool(gameObject);
+        pool.ReturnToPool(gameObject);
     }
 }
