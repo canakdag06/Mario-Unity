@@ -15,6 +15,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     public event Action JumpStartedEvent;
     public event Action JumpPerformedEvent;
     public event Action JumpCanceledEvent;
+    public event Action FireEvent;
     public event Action PauseEvent;
 
     // UI CONTROLS
@@ -85,6 +86,12 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
             JumpCanceledEvent?.Invoke();
     }
 
+    public void OnFire(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+            FireEvent?.Invoke();
+    }
+
     // ----------- UI CONTROLS ------------ //
     public void OnResume(InputAction.CallbackContext context)
     {
@@ -94,7 +101,6 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
             SetGameplay();
         }
     }
-
     // ------------------------------------ //
 }
 
