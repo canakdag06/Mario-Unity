@@ -31,7 +31,7 @@ public class BlockHit : MonoBehaviour
             {
                 Player player = collision.gameObject.GetComponent<Player>();
 
-                if (player.IsBig && isBreakable)
+                if ((player.IsBig || player.IsFirePowered) && isBreakable)
                 {
                     Break();
                     return;
