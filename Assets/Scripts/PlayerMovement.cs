@@ -210,6 +210,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleFire()
     {
+        if (!player.IsFirePowered) return;
+
         GameObject projectile = fireballPool.GetFromPool(shooter.position);
 
         if (projectile != null)
