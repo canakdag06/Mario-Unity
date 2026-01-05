@@ -23,8 +23,8 @@ public class ObjectPool : MonoBehaviour
         if (pool.Count > 0)
         {
             GameObject obj = pool.Dequeue();
-            obj.SetActive(true);
             obj.transform.position = pos;
+            obj.SetActive(true);
             return obj;
         }
 

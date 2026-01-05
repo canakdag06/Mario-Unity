@@ -6,9 +6,12 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private InputReader inputReader;
 
+    [SerializeField] private Transform shooter;
+
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float maxJumpHeight = 5f;
     [SerializeField] private float maxJumpTime = 1f;
+
 
     private ObjectPool fireballPool;
     public float JumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
@@ -206,7 +209,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void HandleFire()
     {
-        GameObject projectile = fireballPool.GetFromPool(transform.position + transform.right);
+        GameObject projectile = fireballPool.GetFromPool(shooter.position);
 
         if (projectile != null)
         {

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4647043311992380480}
   - component: {fileID: 1982382712408500409}
   - component: {fileID: 8709041526748680063}
+  - component: {fileID: 4749648373230802802}
   m_Layer: 0
   m_Name: FireProjectile
   m_TagString: Untagged
@@ -112,7 +113,7 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 328
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
@@ -133,7 +134,7 @@ CircleCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 328
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -152,7 +153,7 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.25
+  m_Radius: 0.2
 --- !u!114 &8709041526748680063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,4 +166,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee91c48daa354444bac88865e29020a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
+  range: 0.5
+  waveSpeed: 2
+--- !u!114 &4749648373230802802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3599262992033986409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d675edab6931cd74898a588d50252f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 2124729566252837900, guid: 40c92e3cf0f8dea42bcb20ea2bf0a1c0, type: 3}
+  - {fileID: 4292876406078150676, guid: 40c92e3cf0f8dea42bcb20ea2bf0a1c0, type: 3}
+  - {fileID: 5883035907700710196, guid: 40c92e3cf0f8dea42bcb20ea2bf0a1c0, type: 3}
+  - {fileID: 6455029519647635598, guid: 40c92e3cf0f8dea42bcb20ea2bf0a1c0, type: 3}
+  FPS: 10
+  loop: 1
