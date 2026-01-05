@@ -10,8 +10,9 @@ public class FireBall : MonoBehaviour
     private Vector3 direction;
     private float timer;
 
-
     private ObjectPool pool;
+
+    private static int currentProjectile = 0;
 
     private void Awake()
     {
@@ -19,9 +20,21 @@ public class FireBall : MonoBehaviour
     }
     private void OnEnable()
     {
+        currentProjectile++;
+
+        if (currentProjectile > 2)
+        {
+            pool.ReturnToPool(gameObject);
+            return;
+        }
+
         timer = 0f;
         startPosition = transform.position;
-        Debug.Log("startPosition: " + startPosition);
+    }
+
+    private void OnDisable()
+    {
+        currentProjectile--;
     }
 
     private void Update()

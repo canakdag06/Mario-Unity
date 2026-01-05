@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
 
     private ObjectPool fireballPool;
+
     public float JumpForce => (2f * maxJumpHeight) / (maxJumpTime / 2f);
     public float Gravity => (-2f * maxJumpHeight) / Mathf.Pow((maxJumpTime / 2f), 2); // d = Vi*t + (1/2)*a*(t^2)
 
@@ -49,7 +50,6 @@ public class PlayerMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
         camera = Camera.main;
-        fireballPool = PoolManager.Instance.fireballPool;
     }
 
     private void OnEnable()
@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         colliderMask = LayerMask.GetMask("Default");
+        fireballPool = PoolManager.Instance.fireballPool;
     }
 
     private void OnDisable()
