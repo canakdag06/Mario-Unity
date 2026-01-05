@@ -11,11 +11,13 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     // GAMEPLAY CONTROLS
     public event Action<Vector2> MoveEvent;
     public event Action CrouchStartedEvent;
-    public event Action CrouchCancelledEvent;
+    public event Action CrouchCanceledEvent;
     public event Action JumpStartedEvent;
     public event Action JumpPerformedEvent;
     public event Action JumpCanceledEvent;
     public event Action FireEvent;
+    public event Action SprintStartedEvent;
+    public event Action SprintCanceledEvent;
     public event Action PauseEvent;
 
     // UI CONTROLS
@@ -64,7 +66,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         if (context.phase == InputActionPhase.Started)
             CrouchStartedEvent?.Invoke();
         else if (context.phase == InputActionPhase.Canceled)
-            CrouchCancelledEvent?.Invoke();
+            CrouchCanceledEvent?.Invoke();
     }
 
     public void OnPause(InputAction.CallbackContext context)
@@ -90,6 +92,14 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     {
         if (context.phase == InputActionPhase.Started)
             FireEvent?.Invoke();
+    }
+
+    public void OnSprint(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Started)
+            SprintStartedEvent?.Invoke();
+        else if (context.phase == InputActionPhase.Canceled)
+            SprintCanceledEvent?.Invoke();
     }
 
     // ----------- UI CONTROLS ------------ //

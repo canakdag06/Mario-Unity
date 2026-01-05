@@ -8,7 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField] private Transform shooter;
 
-    [SerializeField] private float moveSpeed = 8f;
+    [SerializeField] private float normalSpeed = 8f;
+    [SerializeField] private float sprintSpeed = 12f;
     [SerializeField] private float maxJumpHeight = 5f;
     [SerializeField] private float maxJumpTime = 1f;
 
@@ -29,6 +30,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2 velocity;
     private float inputAxis;
+    private float moveSpeed = 0f;
 
     private new Rigidbody2D rigidbody;
     private new Camera camera;
@@ -50,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
         rigidbody = GetComponent<Rigidbody2D>();
         player = GetComponent<Player>();
         camera = Camera.main;
+        moveSpeed = normalSpeed;
     }
 
     private void OnEnable()
@@ -63,9 +66,12 @@ public class PlayerMovement : MonoBehaviour
             inputReader.JumpCanceledEvent += HandleJumpCanceled;
 
             inputReader.CrouchStartedEvent += HandleCrouchStarted;
-            inputReader.CrouchCancelledEvent += HandleCrouchCancelled;
+            inputReader.CrouchCanceledEvent += HandleCrouchCancelled;
 
             inputReader.FireEvent += HandleFire;
+
+            inputReader.SprintStartedEvent += HandleSprintStarted;
+            inputReader.SprintCanceledEvent += HandleSprintCanceled;
         }
 
         rigidbody.bodyType = RigidbodyType2D.Dynamic;
@@ -89,9 +95,12 @@ public class PlayerMovement : MonoBehaviour
             inputReader.JumpCanceledEvent -= HandleJumpCanceled;
 
             inputReader.CrouchStartedEvent -= HandleCrouchStarted;
-            inputReader.CrouchCancelledEvent -= HandleCrouchCancelled;
+            inputReader.CrouchCanceledEvent -= HandleCrouchCancelled;
 
             inputReader.FireEvent -= HandleFire;
+
+            inputReader.SprintStartedEvent -= HandleSprintStarted;
+            inputReader.SprintCanceledEvent -= HandleSprintCanceled;
         }
 
         rigidbody.bodyType = RigidbodyType2D.Kinematic;
@@ -221,6 +230,17 @@ public class PlayerMovement : MonoBehaviour
             projectile.SetActive(true);
         }
     }
+
+    private void HandleSprintStarted()
+    {
+        moveSpeed = sprintSpeed;
+    }
+
+    private void HandleSprintCanceled()
+    {
+        moveSpeed = normalSpeed;
+    }
+
 
     private void ApplyGravity()
     {
