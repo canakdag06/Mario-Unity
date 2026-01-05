@@ -21,6 +21,14 @@ public class PowerUp : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            ApplyPowerUp(collision.gameObject);
+        }
+    }
+
     private void ApplyPowerUp(GameObject player)
     {
         switch (type)
