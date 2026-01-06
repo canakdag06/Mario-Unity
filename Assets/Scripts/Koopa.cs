@@ -83,8 +83,11 @@ public class Koopa : MonoBehaviour
     private void EnterShell()
     {
         isShelled = true;
+        isSliding = false;
 
         entityMovement.enabled = false;
+
+        entityMovement.colliderMask = LayerMask.GetMask("Default", "Enemy");
         spriteAnimation.enabled = false;
         spriteRenderer.sprite = shellSprite;
     }
@@ -96,9 +99,8 @@ public class Koopa : MonoBehaviour
 
         entityMovement.direction = direction.normalized;
         entityMovement.speed = slidingSpeed;
+        entityMovement.colliderMask = LayerMask.GetMask("Default");
         entityMovement.enabled = true;
-
-        gameObject.layer = slidingShellLayer;
     }
 
 

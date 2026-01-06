@@ -7,12 +7,15 @@ public class EntityMovement : MonoBehaviour
 
     private new Rigidbody2D rigidbody;
     private Vector2 velocity;
-    private LayerMask colliderMask;
+    public LayerMask colliderMask;
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody2D>();
-        colliderMask = LayerMask.GetMask("Default", "Enemy", "DeadEnemy");
+        if (colliderMask == 0)
+        {
+            colliderMask = LayerMask.GetMask("Default", "Enemy", "DeadEnemy");
+        }
         enabled = false;
     }
 
