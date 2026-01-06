@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
     public bool Sliding => inputAxis * velocity.x < 0f; // is inputAxis and velocity.x are opposite signs
     public bool Crouching { get; private set; }
     public bool Climbing { get; set; }
+    public Vector2 Velocity => velocity;
 
     public Vector2 Input { get; private set; }
 
@@ -213,8 +214,6 @@ public class PlayerMovement : MonoBehaviour
         isTryingCrouch = false;
         Crouching = false;
         DisableCouchCollider?.Invoke();
-        //Crouching = false;
-        //Debug.Log("Crouch: " + Crouching);
     }
 
     private void HandleFire()

@@ -32,8 +32,12 @@ public class PlayerSpriteRenderer : MonoBehaviour
     private void LateUpdate()
     {
         run.enabled = movement.Running;
+        float horizontalSpeed = Mathf.Abs(movement.Velocity.x); // Adjust animation playback speed based on character speed
+        float minFPS = 8f;
+        float speedFactor = 1.5f;
+        run.FPS = minFPS + (horizontalSpeed * speedFactor);
 
-        if (movement.Climbing)
+        if (movement.Climbing)      // The order matters here. Do not change it.
         {
             spriteRenderer.sprite = climb;
         }

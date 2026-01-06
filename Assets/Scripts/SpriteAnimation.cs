@@ -5,9 +5,11 @@ public class SpriteAnimation : MonoBehaviour
 {
     public SpriteRenderer Renderer { get; private set; }
     public Sprite[] sprites;
-    public int FPS;
+    public float FPS = 15f;
     public int Frame { get; private set; }
     public bool loop = true;
+
+    private float timer;
 
     private void Awake()
     {
@@ -16,46 +18,28 @@ public class SpriteAnimation : MonoBehaviour
 
     private void OnEnable()
     {
-        StartAnimation();
+        Restart();
     }
 
-    private void OnDisable()
+    private void Update()
     {
-        StopAnimation();
-    }
+        if (FPS <= 0) return;
+        timer += Time.deltaTime;
 
-
-    //void Start()
-    //{
-    //    float time = 1f / FPS;
-    //    InvokeRepeating(nameof(PlayAnimation), time, time);
-    //}
-
-    public void StartAnimation()
-    {
-        if (IsInvoking(nameof(PlayAnimation)))
+        if (timer >= 1f / FPS)
         {
-            CancelInvoke(nameof(PlayAnimation));
+            timer = 0f;
+            NextFrame();
         }
-
-        Frame = 0;
-        float time = 1f / FPS;
-
-        InvokeRepeating(nameof(PlayAnimation), 0f, time);
     }
 
-    public void StopAnimation()
+    private void NextFrame()
     {
-        CancelInvoke(nameof(PlayAnimation));
-    }
-
-    public void PlayAnimation()
-    {
-        if (!Renderer.enabled) return;
+        if (!Renderer.enabled || sprites.Length == 0) return;
 
         Frame++;
 
-        if (Frame >= sprites.Length && loop)
+        if (Frame >= sprites.Length)
         {
             if (loop)
             {
@@ -63,18 +47,22 @@ public class SpriteAnimation : MonoBehaviour
             }
             else
             {
-                StopAnimation();
+                Frame = sprites.Length - 1;
+                enabled = false;
+                return;
             }
         }
 
-        if (Frame < sprites.Length)
-        {
-            Renderer.sprite = sprites[Frame];
-        }
+        Renderer.sprite = sprites[Frame];
     }
 
     public void Restart()
     {
-        StartAnimation();
+        Frame = 0;
+        timer = 0f;
+        if (sprites.Length > 0)
+        {
+            Renderer.sprite = sprites[0];
+        }
     }
 }

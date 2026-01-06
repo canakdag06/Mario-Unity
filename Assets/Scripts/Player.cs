@@ -88,8 +88,6 @@ public class Player : MonoBehaviour
 
     private IEnumerator FirePowerAnimation()
     {
-        //IsFirePowered = true;
-
         float duration = 1f;
         float endTime = Time.time + duration;
         float changeRate = 0.1f;
@@ -103,7 +101,6 @@ public class Player : MonoBehaviour
 
         bigRenderer.enabled = false;
         activeRenderer.enabled = true;
-        //IsFirePowered = false;
     }
 
     private void Shrink()
