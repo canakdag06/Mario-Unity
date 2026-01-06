@@ -80,7 +80,7 @@ public class BlockHit : MonoBehaviour
         {
             PowerUp powerUp = itemPrefab.GetComponent<PowerUp>();
 
-            if (powerUp != null && powerUp.type == PowerUp.Type.MagicMushroom && player != null && player.IsBig)
+            if (powerUp != null && powerUp.type == PowerUp.Type.MagicMushroom && player != null && (player.IsBig || player.IsFirePowered))
             {
                 currentItemToSpawn = flowerPrefab;
             }

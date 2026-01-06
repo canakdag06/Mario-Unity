@@ -73,9 +73,12 @@ public class Player : MonoBehaviour
 
     public void EnableFireMario()
     {
-        if (IsSmall)
+        if (IsFirePowered || IsSmall)
         {
-            Grow();
+            if (IsSmall)
+            {
+                Grow();
+            }
             return;
         }
 
