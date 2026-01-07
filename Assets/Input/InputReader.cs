@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 [CreateAssetMenu(menuName = "InputReader")]
 public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInput.IUIActions
 {
+    public GameInput InputActions => gameInput;
     private GameInput gameInput;
 
 
@@ -20,6 +21,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     public event Action SprintCanceledEvent;
     public event Action PauseEvent;
 
+
     // UI CONTROLS
     public event Action ResumeEvent;
 
@@ -28,7 +30,7 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
         if (gameInput == null)
         {
             gameInput = new GameInput();
-
+            gameInput?.Enable();
             gameInput.Gameplay.SetCallbacks(this);          //SET CALLBACKS
             gameInput.UI.SetCallbacks(this);
 
@@ -69,14 +71,6 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
             CrouchCanceledEvent?.Invoke();
     }
 
-    public void OnPause(InputAction.CallbackContext context)
-    {
-        if (context.phase == InputActionPhase.Performed)
-        {
-            PauseEvent?.Invoke();
-            SetUI();
-        }
-    }
 
     public void OnJump(InputAction.CallbackContext context)
     {
@@ -102,13 +96,22 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
             SprintCanceledEvent?.Invoke();
     }
 
+    public void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.phase == InputActionPhase.Performed)
+        {
+            PauseEvent?.Invoke();
+            //SetUI();
+        }
+    }
+
     // ----------- UI CONTROLS ------------ //
     public void OnResume(InputAction.CallbackContext context)
     {
         if (context.phase == InputActionPhase.Performed)
         {
-            ResumeEvent?.Invoke();
-            SetGameplay();
+            PauseEvent?.Invoke();
+            //SetGameplay();
         }
     }
     // ------------------------------------ //
