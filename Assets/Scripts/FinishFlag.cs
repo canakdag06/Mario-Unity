@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FinishFlag : MonoBehaviour
 {
@@ -28,6 +29,8 @@ public class FinishFlag : MonoBehaviour
         yield return MoveTo(player, castle.position);
 
         player.gameObject.SetActive(false);
+        SceneManager.LoadScene("MainMenu");
+
     }
 
     private IEnumerator MoveTo(Transform subject, Vector3 target)

@@ -101,7 +101,7 @@ public class UIManager : MonoBehaviour
     public void CancelExit()
     {
         exitGamePanel.transform.DOScale(Vector3.zero, 0.2f).SetUpdate(true).OnComplete(() => {
-            TogglePause(); // State değişimini ve input değişimini burada yap
+            TogglePause();
         });
     }
 }
