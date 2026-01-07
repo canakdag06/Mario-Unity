@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private Image fadeOutImage;
+    [SerializeField] private GameObject controlsPanel;
     public float fadeDuration = 1.0f;
 
     public void StartGame()
@@ -35,6 +36,16 @@ public class MainMenuManager : MonoBehaviour
         }
 
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void OpenControlsPanel()
+    {
+        controlsPanel.SetActive(true);
+    }
+
+    public void CloseControlsPanel()
+    {
+        controlsPanel.SetActive(false);
     }
 
     public void ExitGame()
