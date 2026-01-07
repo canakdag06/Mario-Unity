@@ -21,10 +21,6 @@ public class InputReader : ScriptableObject, GameInput.IGameplayActions, GameInp
     public event Action SprintCanceledEvent;
     public event Action PauseEvent;
 
-
-    // UI CONTROLS
-    public event Action ResumeEvent;
-
     private void OnEnable()
     {
         if (gameInput == null)
