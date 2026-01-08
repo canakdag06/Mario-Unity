@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
     private PlayerSpriteRenderer activeRenderer;
     private PlayerMovement playerMovement;
 
+    private bool isShrinking = false;
+
     private void Awake()
     {
         deathAnimation = GetComponent<DeathAnimation>();
@@ -40,7 +42,7 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        if (!IsStarPowered && !IsDead)
+        if (!IsStarPowered && !IsDead && !isShrinking)
         {
             if (IsBig || IsFirePowered)
             {
@@ -117,6 +119,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator ScaleAnimation()
     {
+        isShrinking = true;
         float duration = 1f;
         float endTime = Time.time + duration;
 
@@ -131,6 +134,7 @@ public class Player : MonoBehaviour
         smallRenderer.enabled = false;
         bigRenderer.enabled = false;
         activeRenderer.enabled = true;
+        isShrinking = false;
     }
 
     private IEnumerator StarPowerAnimation()
