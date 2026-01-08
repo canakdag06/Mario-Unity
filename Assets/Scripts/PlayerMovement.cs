@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     public bool Grounded { get; private set; }
     public bool Jumping { get; private set; }
     public bool Running => Mathf.Abs(velocity.x) > 0.25f;
-    public bool Sliding => inputAxis * velocity.x < 0f; // is inputAxis and velocity.x are opposite signs
+    public bool Sliding => inputAxis * velocity.x < 0f; // = is inputAxis and velocity.x are opposite signs?
     public bool Crouching { get; private set; }
     public bool Climbing { get; set; }
     public Vector2 Velocity => velocity;

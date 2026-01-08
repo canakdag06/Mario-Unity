@@ -63,10 +63,4 @@ public class EntityMovement : MonoBehaviour
         float angle = (direction.x > 0) ? 0f : 180f;
         transform.eulerAngles = new Vector3(0f, angle, 0f);
     }
-
-    //private void OnDrawGizmos()
-    //{
-    //    Gizmos.color = Color.yellow;
-    //    Gizmos.DrawWireSphere((Vector2)transform.position + direction.normalized * 0.375f, 0.25f);
-    //}
 }

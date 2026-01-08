@@ -30,7 +30,6 @@ public class FinishFlag : MonoBehaviour
 
         player.gameObject.SetActive(false);
         SceneManager.LoadScene("MainMenu");
-
     }
 
     private IEnumerator MoveTo(Transform subject, Vector3 target)

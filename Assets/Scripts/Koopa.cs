@@ -103,7 +103,6 @@ public class Koopa : MonoBehaviour
         entityMovement.enabled = true;
     }
 
-
     private void OnBecameInvisible()
     {
         if (isSliding)

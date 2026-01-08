@@ -8,7 +8,7 @@ public class ParticlePool : MonoBehaviour
     [SerializeField] private GameObject prefab;
     [SerializeField] private int poolSize = 10;
 
-    private Queue<GameObject> pool = new Queue<GameObject>();
+    private Queue<GameObject> pool = new();
 
     private void Awake()
     {

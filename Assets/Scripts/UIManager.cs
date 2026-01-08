@@ -1,6 +1,5 @@
 ﻿using DG.Tweening;
 using System.Collections;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -100,7 +99,8 @@ public class UIManager : MonoBehaviour
 
     public void CancelExit()
     {
-        exitGamePanel.transform.DOScale(Vector3.zero, 0.2f).SetUpdate(true).OnComplete(() => {
+        exitGamePanel.transform.DOScale(Vector3.zero, 0.2f).SetUpdate(true).OnComplete(() =>
+        {
             TogglePause();
         });
     }

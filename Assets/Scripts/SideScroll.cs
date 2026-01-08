@@ -14,7 +14,7 @@ public class SideScroll : MonoBehaviour
     private void LateUpdate()
     {
         Vector3 cameraPosition = transform.position;
-        cameraPosition.x = Mathf.Max(cameraPosition.x, cameraTarget.position.x);    // camera does not go left in original game
+        cameraPosition.x = Mathf.Max(cameraPosition.x, cameraTarget.position.x);    // camera does not go left in the original game
         transform.position = cameraPosition;
     }
 

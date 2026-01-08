@@ -2,9 +2,6 @@ using UnityEngine;
 
 public static class Extensions
 {
-    private static LayerMask defaultMask = LayerMask.GetMask("Default");
-    private static LayerMask enemyMask = LayerMask.GetMask("Enemy");
-
     public static bool Raycast(this Rigidbody2D rigidbody, Vector2 direction, LayerMask collisionMask)
     {
         if (rigidbody.bodyType == RigidbodyType2D.Kinematic)

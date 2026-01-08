@@ -12,6 +12,7 @@ public class Goomba : MonoBehaviour
 
     private LayerMask deadEnemyMask;
     private int slidingShellLayer;
+
     private void Awake()
     {
         deadEnemyMask = LayerMask.NameToLayer("DeadEnemy");
