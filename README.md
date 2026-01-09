@@ -5,6 +5,12 @@ A remake of the legendary **Super Mario Bros**, built with **Unity**.
 > **Disclaimer** > This is a **fan-made project** created for educational and portfolio purposes.  
 > It is **not affiliated with, endorsed by, or associated with** the official Super Mario Bros.® brand or Nintendo.
 
+Dear Nintendo,
+
+If you are reading this, please don’t sue me! ^^
+
+I am a game developer dedicated to sharpening my skills by recreating the iconic games that shaped history. Super Mario Bros. was one of the first games I ever played as a child. This is a non-profit, fan-made project created solely for educational purposes and out of pure respect for the original masterpiece.
+
 ---
 
 ## 🎥 Gameplay Video
